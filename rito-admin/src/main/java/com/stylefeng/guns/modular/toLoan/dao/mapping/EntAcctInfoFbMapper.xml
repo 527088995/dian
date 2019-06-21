@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.modular.toLoan.dao.EntAcctInfoFbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.stylefeng.guns.modular.toLoan.model.EntAcctInfoFb">
+        <id column="ID" property="id"/>
+        <result column="ACCT_TYPE" property="acctType"/>
+        <result column="ACCT_CODE" property="acctCode"/>
+        <result column="RPT_DATE" property="rptDate"/>
+        <result column="RPT_DATE_CODE" property="rptDateCode"/>
+        <result column="NAME" property="name"/>
+        <result column="ID_TYPE" property="idType"/>
+        <result column="ID_NUM" property="idNum"/>
+        <result column="MNGMT_ORG_CODE" property="mngmtOrgCode"/>
+        <result column="BUSI_LINES" property="busiLines"/>
+        <result column="BUSI_DTL_LINES" property="busiDtlLines"/>
+        <result column="OPEN_DATE" property="openDate"/>
+        <result column="CY" property="cy"/>
+        <result column="ACCT_CRED_LINE" property="acctCredLine"/>
+        <result column="LOAN_AMT" property="loanAmt"/>
+        <result column="FLAG" property="flag"/>
+        <result column="DUE_DATE" property="dueDate"/>
+        <result column="REPAY_MODE" property="repayMode"/>
+        <result column="REPAY_FREQCY" property="repayFreqcy"/>
+        <result column="APPLY_BUSI_DIST" property="applyBusiDist"/>
+        <result column="GUAR_MODE" property="guarMode"/>
+        <result column="OTH_REPY_GUAR_WAY" property="othRepyGuarWay"/>
+        <result column="LOAN_TIME_LIM_CAT" property="loanTimeLimCat"/>
+        <result column="LOAFRM" property="loafrm"/>
+        <result column="ACT_INVEST" property="actInvest"/>
+        <result column="FUND_SOU" property="fundSou"/>
+        <result column="ASSET_TRAND_FLAG" property="assetTrandFlag"/>
+        <result column="RLT_REPYMT_NM" property="rltRepymtNm"/>
+        <result column="CC_NUM" property="ccNum"/>
+        <result column="MCC" property="mcc"/>
+        <result column="INIT_CRED_NAME" property="initCredName"/>
+        <result column="INIT_CED_ORG_CODE" property="initCedOrgCode"/>
+        <result column="ORIG_DBT_CATE" property="origDbtCate"/>
+        <result column="INIT_RPY_STS" property="initRpySts"/>
+        <result column="ACCT_STATUS" property="acctStatus"/>
+        <result column="ACCT_BAL" property="acctBal"/>
+        <result column="BAL_CHG_DATE" property="balChgDate"/>
+        <result column="FIVE_CATE" property="fiveCate"/>
+        <result column="FIVE_CATE_ADJ_DATE" property="fiveCateAdjDate"/>
+        <result column="PYMT_PRD" property="pymtPrd"/>
+        <result column="TOT_OVERD" property="totOverd"/>
+        <result column="OVERD_PRINC" property="overdPrinc"/>
+        <result column="OVERD_DY" property="overdDy"/>
+        <result column="LAT_RPY_DATE" property="latRpyDate"/>
+        <result column="LAT_RPY_AMT" property="latRpyAmt"/>
+        <result column="LAT_RPY_PRINC_AMT" property="latRpyPrincAmt"/>
+        <result column="RPMT_TYPE" property="rpmtType"/>
+        <result column="LAT_AGRR_RPY_DATE" property="latAgrrRpyDate"/>
+        <result column="LAG_AGRR_RPY_AMT" property="lagAgrrRpyAmt"/>
+        <result column="NXT_AGRR_RPY_DATE" property="nxtAgrrRpyDate"/>
+        <result column="CLOSE_DATE" property="closeDate"/>
+        <result column="CAG_OF_TRD_NM" property="cagOfTrdNm"/>
+        <result column="STATUS" property="status"/>
+        <result column="CREATE_TIME" property="createTime"/>
+        <result column="DELETE_FLAG" property="deleteFlag"/>
+        <result column="CREATE_USER" property="createUser"/>
+        <result column="UPDATE_TIME" property="updateTime"/>
+        <result column="UPDATE_USER" property="updateUser"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID AS "id", ACCT_TYPE AS "acctType", ACCT_CODE AS "acctCode", RPT_DATE AS "rptDate",
+        RPT_DATE_CODE AS "rptDateCode", NAME AS "name", ID_TYPE AS "idType", ID_NUM AS "idNum",
+        MNGMT_ORG_CODE AS "mngmtOrgCode", BUSI_LINES AS "busiLines", BUSI_DTL_LINES AS "busiDtlLines",
+        OPEN_DATE AS "openDate", CY AS "cy", ACCT_CRED_LINE AS "acctCredLine", LOAN_AMT AS "loanAmt",
+        FLAG AS "flag", DUE_DATE AS "dueDate", REPAY_MODE AS "repayMode", REPAY_FREQCY AS "repayFreqcy",
+        APPLY_BUSI_DIST AS "applyBusiDist", GUAR_MODE AS "guarMode", OTH_REPY_GUAR_WAY AS "othRepyGuarWay",
+        LOAN_TIME_LIM_CAT AS "loanTimeLimCat", LOAFRM AS "loafrm", ACT_INVEST AS "actInvest", FUND_SOU AS "fundSou",
+        ASSET_TRAND_FLAG AS "assetTrandFlag", RLT_REPYMT_NM AS "rltRepymtNm", CC_NUM AS "ccNum", MCC AS "mcc",
+        INIT_CRED_NAME AS "initCredName", INIT_CED_ORG_CODE AS "initCedOrgCode", ORIG_DBT_CATE AS "origDbtCate",
+        INIT_RPY_STS AS "initRpySts", ACCT_STATUS AS "acctStatus", ACCT_BAL AS "acctBal",
+        BAL_CHG_DATE AS "balChgDate", FIVE_CATE AS "fiveCate", FIVE_CATE_ADJ_DATE AS "fiveCateAdjDate",
+        PYMT_PRD AS "pymtPrd", TOT_OVERD AS "totOverd", OVERD_PRINC AS "overdPrinc", OVERD_DY AS "overdDy",
+        LAT_RPY_DATE AS "latRpyDate", LAT_RPY_AMT AS "latRpyAmt", LAT_RPY_PRINC_AMT AS "latRpyPrincAmt",
+        RPMT_TYPE AS "rpmtType", LAT_AGRR_RPY_DATE AS "latAgrrRpyDate", LAG_AGRR_RPY_AMT AS "lagAgrrRpyAmt",
+        NXT_AGRR_RPY_DATE AS "nxtAgrrRpyDate", CLOSE_DATE AS "closeDate", CAG_OF_TRD_NM AS "cagOfTrdNm",
+        STATUS AS "status", CREATE_TIME AS "createTime", DELETE_FLAG AS "deleteFlag", CREATE_USER AS "createUser",
+        UPDATE_TIME AS "updateTime", UPDATE_USER AS "updateUser"
+    </sql>
+
+    <select id="list" resultType="map">
+        select
+        <include refid="Base_Column_List"></include>
+        from ENT_ACCT_INFO_FB
+        order by create_time DESC
+    </select>
+</mapper>

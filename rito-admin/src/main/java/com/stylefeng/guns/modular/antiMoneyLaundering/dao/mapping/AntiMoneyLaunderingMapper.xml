@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.modular.antiMoneyLaundering.dao.AntiMoneyLaunderingMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.stylefeng.guns.modular.antiMoneyLaundering.model.AntiMoneyLaundering">
+        <id column="ANTI_ID" property="antiId"/>
+        <result column="RICD" property="ricd"/>
+        <result column="RPNC" property="rpnc"/>
+        <result column="RITP" property="ritp"/>
+        <result column="DETR" property="detr"/>
+        <result column="TORP" property="torp"/>
+        <result column="ORXN" property="orxn"/>
+        <result column="DORP" property="dorp"/>
+        <result column="ODRP" property="odrp"/>
+        <result column="TPTR" property="tptr"/>
+        <result column="OTPR" property="otpr"/>
+        <result column="STCB" property="stcb"/>
+        <result column="AOSP" property="aosp"/>
+        <result column="TOSC" property="tosc"/>
+        <result column="STCR" property="stcr"/>
+        <result column="SBDT" property="sbdt"/>
+        <result column="SEDT" property="sedt"/>
+        <result column="ROTF" property="rotf"/>
+        <result column="SEVC" property="sevc"/>
+        <result column="SENM" property="senm"/>
+        <result column="SETP" property="setp"/>
+        <result column="OITP" property="oitp"/>
+        <result column="SEID" property="seid"/>
+        <result column="STNT" property="stnt"/>
+        <result column="SCIF" property="scif"/>
+        <result column="SRNM" property="srnm"/>
+        <result column="SRIT" property="srit"/>
+        <result column="ORIT" property="orit"/>
+        <result column="SRID" property="srid"/>
+        <result column="SCNM" property="scnm"/>
+        <result column="SCIT" property="scit"/>
+        <result column="OCIT" property="ocit"/>
+        <result column="SCID" property="scid"/>
+        <result column="SCBA" property="scba"/>
+        <result column="SCBN" property="scbn"/>
+        <result column="CREATE_TIME" property="createTime"/>
+        <result column="CREATE_USER" property="createUser"/>
+        <result column="UPDATE_TIME" property="updateTime"/>
+        <result column="UPDATE_USER" property="updateUser"/>
+        <result column="DEL_FLAG" property="delFlag"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ANTI_ID AS "antiId", RICD AS "ricd", RPNC AS "rpnc",RITP AS "ritp",DETR AS "detr",TORP AS "torp",ORXN AS "orxn",DORP AS "dorp",ODRP AS "odrp"
+ ,TPTR AS "tptr",OTPR AS "otpr",STCB AS "stcb",AOSP AS "aosp",TOSC AS "tosc",STCR AS "stcr",SBDT AS "sbdt",SEDT AS "sedt"
+ ,ROTF AS "rotf",SEVC AS "sevc",SENM AS "senm",SETP AS "setp",OITP AS "oitp",SEID AS "seid",STNT AS "stnt",SCIF AS "scif",SRNM AS "srnm",SRIT AS "srit"
+ ,ORIT AS "orit",SRID AS "srid",SCNM AS "scnm",SCIT AS "scit",OCIT AS "ocit",SCID AS "scid",SCBA AS "scba",SCBN AS "scbn",
+ DEL_FLAG AS "delFlag", CREATE_TIME AS "createTime", CREATE_USER AS "createUser", UPDATE_TIME AS "updateTime",UPDATE_USER AS "updateUser"
+    </sql>
+
+    <select id="list" resultType="map">
+        select
+        <include refid="Base_Column_List"></include>
+        from sys_anti_money_laundering
+        where del_flag=0 order by CREATE_TIME desc
+    </select>
+
+    <select id="list" resultType="map" databaseId="oracle">
+        select
+        <include refid="Base_Column_List"></include>
+        from sys_anti_money_laundering
+        where del_flag=0
+    </select>
+
+    <select id="createXML" parameterType="Long" resultType="com.stylefeng.guns.modular.antiMoneyLaundering.model.AntiMoneyLaundering">
+        select
+        <include refid="Base_Column_List"></include>
+        from sys_anti_money_laundering
+        where ANTI_ID=#{antiId}
+    </select>
+</mapper>

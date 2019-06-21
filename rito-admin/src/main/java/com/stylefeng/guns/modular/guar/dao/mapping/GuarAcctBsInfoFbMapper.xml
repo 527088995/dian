@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.modular.guar.dao.GuarAcctBsInfoFbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.stylefeng.guns.modular.guar.model.GuarAcctBsInfoFb">
+        <id column="ID" property="id"/>
+        <result column="ACCT_TYPE" property="acctType"/>
+        <result column="ACCT_CODE" property="acctCode"/>
+        <result column="RPT_DATE" property="rptDate"/>
+        <result column="RPT_DATE_CODE" property="rptDateCode"/>
+        <result column="NAME" property="name"/>
+        <result column="ID_TYPE" property="idType"/>
+        <result column="ID_NUM" property="idNum"/>
+        <result column="MNGMT_ORG_CODE" property="mngmtOrgCode"/>
+        <result column="BUSI_LINES" property="busiLines"/>
+        <result column="BUSI_DTIL_LINES" property="busiDtilLines"/>
+        <result column="OPEN_DATE" property="openDate"/>
+        <result column="GUAR_AMT" property="guarAmt"/>
+        <result column="CY" property="cy"/>
+        <result column="DUE_DATE" property="dueDate"/>
+        <result column="GUAR_MODE" property="guarMode"/>
+        <result column="OTH_REP_GUAR_WAY" property="othRepGuarWay"/>
+        <result column="SEC_DEP" property="secDep"/>
+        <result column="CTRCT_TXT_CODE" property="ctrctTxtCode"/>
+        <result column="RLT_REPYMT_NM" property="rltRepymtNm"/>
+        <result column="CC_NM" property="ccNm"/>
+        <result column="MCC" property="mcc"/>
+        <result column="ACCT_STATUS" property="acctStatus"/>
+        <result column="LOAN_AMT" property="loanAmt"/>
+        <result column="REPAY_PRD" property="repayPrd"/>
+        <result column="FIVE_CATE" property="fiveCate"/>
+        <result column="FIVE_CATE_ADJ_DATE" property="fiveCateAdjDate"/>
+        <result column="RIEX" property="riex"/>
+        <result column="COMP_ADV_FLAG" property="compAdvFlag"/>
+        <result column="CLOSE_DATE" property="closeDate"/>
+        <result column="STATUS" property="status"/>
+        <result column="CREATE_USER" property="createUser"/>
+        <result column="CREATE_TIME" property="createTime"/>
+        <result column="UPDATE_USER" property="updateUser"/>
+        <result column="UPDATE_TIME" property="updateTime"/>
+        <result column="DELETE_FLAG" property="deleteFlag"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID AS "id", ACCT_TYPE AS "acctType", ACCT_CODE AS "acctCode", RPT_DATE AS "rptDate", RPT_DATE_CODE AS "rptDateCode", NAME AS "name", ID_TYPE AS "idType", ID_NUM AS "idNum", MNGMT_ORG_CODE AS "mngmtOrgCode", BUSI_LINES AS "busiLines", BUSI_DTIL_LINES AS "busiDtilLines", OPEN_DATE AS "openDate", GUAR_AMT AS "guarAmt", CY AS "cy", DUE_DATE AS "dueDate", GUAR_MODE AS "guarMode", OTH_REP_GUAR_WAY AS "othRepGuarWay", SEC_DEP AS "secDep", CTRCT_TXT_CODE AS "ctrctTxtCode", RLT_REPYMT_NM AS "rltRepymtNm", CC_NM AS "ccNm", MCC AS "mcc", ACCT_STATUS AS "acctStatus", LOAN_AMT AS "loanAmt", REPAY_PRD AS "repayPrd", FIVE_CATE AS "fiveCate", FIVE_CATE_ADJ_DATE AS "fiveCateAdjDate", RIEX AS "riex", COMP_ADV_FLAG AS "compAdvFlag", CLOSE_DATE AS "closeDate", STATUS AS "status", CREATE_USER AS "createUser", CREATE_TIME AS "createTime", UPDATE_USER AS "updateUser", UPDATE_TIME AS "updateTime", DELETE_FLAG AS "deleteFlag"
+    </sql>
+
+    <select id="list" resultType="map">
+        select
+        <include refid="Base_Column_List"></include>
+        from GUAR_ACCT_BS_INFO_FB
+        order by create_time DESC
+    </select>
+</mapper>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.modular.system.dao.SysTaskLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.stylefeng.guns.modular.system.model.SysTaskLog">
+        <id column="ID" property="id"/>
+        <result column="NAME" property="name"/>
+        <result column="EXEC_AT" property="execAt"/>
+        <result column="EXEC_SUCCESS" property="execSuccess"/>
+        <result column="JOB_EXCEPTION" property="jobException"/>
+        <result column="ID_TASK" property="idTask"/>
+        <result column="CREATE_TIME" property="createTime"/>
+        <result column="CREATE_USER" property="createUser"/>
+        <result column="UPDATE_TIME" property="updateTime"/>
+        <result column="UPDATE_USER" property="updateUser"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID AS "id", NAME AS "name", EXEC_AT AS "execAt", EXEC_SUCCESS AS "execSuccess",
+        JOB_EXCEPTION AS "jobException", ID_TASK AS "idTask", CREATE_TIME AS "createTime",
+        CREATE_USER AS "createUser", UPDATE_TIME AS "updateTime", UPDATE_USER AS "updateUser"
+    </sql>
+
+    <select id="list" resultType="map">
+        select
+        <include refid="Base_Column_List"></include>
+        from SYS_TASK_LOG
+        where ID_TASK = #{taskId}
+        order by EXEC_AT DESC
+    </select>
+</mapper>

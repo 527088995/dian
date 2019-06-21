@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.modular.system.dao.SysTaskMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.stylefeng.guns.modular.system.model.SysTask">
+        <id column="ID" property="id"/>
+        <result column="NAME" property="name"/>
+        <result column="JOB_GROUP" property="jobGroup"/>
+        <result column="JOB_CLASS" property="jobClass"/>
+        <result column="NOTE" property="note"/>
+        <result column="CRON" property="cron"/>
+        <result column="DATA" property="data"/>
+        <result column="EXEC_AT" property="execAt"/>
+        <result column="EXEC_RESULT" property="execResult"/>
+        <result column="DISABLED" property="disabled"/>
+        <result column="CONCURRENT" property="concurrent"/>
+        <result column="CREATE_TIME" property="createTime"/>
+        <result column="CREATE_USER" property="createUser"/>
+        <result column="UPDATE_TIME" property="updateTime"/>
+        <result column="UPDATE_USER" property="updateUser"/>
+        <result column="DELETE_FLAG" property="deleteFlag"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID AS "id", NAME AS "name", JOB_GROUP AS "jobGroup", JOB_CLASS AS "jobClass",
+        NOTE AS "note", CRON AS "cron", DATA AS "data", EXEC_AT AS "execAt",
+        EXEC_RESULT AS "execResult", DISABLED AS "disabled", CONCURRENT AS "concurrent",
+        CREATE_TIME AS "createTime", CREATE_USER AS "createUser", UPDATE_TIME AS "updateTime",
+        UPDATE_USER AS "updateUser", DELETE_FLAG as "deleteFlag"
+    </sql>
+
+    <select id="list" resultType="map">
+        select
+        <include refid="Base_Column_List"></include>
+        from SYS_TASK
+        where  DELETE_FLAG=0
+        order by create_time DESC
+    </select>
+</mapper>

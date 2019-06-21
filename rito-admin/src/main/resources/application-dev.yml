@@ -1,0 +1,27 @@
+##########################################################
+###################  开发环境的profile  ###################
+##########################################################
+spring:
+  profiles: dev
+  datasource:
+    driverClassName: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@192.168.0.118:1521:orcl
+    username: guns
+    password: guns
+    db-name: guns
+    filters: log4j,wall,mergeStat
+
+#flowable数据源和多数据源配置
+guns:
+  flowable:
+    datasource:
+    driverClassName: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@192.168.0.118:1521:orcl
+    username: guns
+    password: guns
+  muti-datasource:
+    open: true
+    driverClassName: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@192.168.0.118:1521:orcl
+    username: guns_test
+    password: guns_test

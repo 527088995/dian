@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.modular.toLoan.dao.EntAcctTransFbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.stylefeng.guns.modular.toLoan.model.EntAcctTransFb">
+        <id column="ID" property="id" />
+        <result column="ENT_ACCT_ID" property="entAcctId" />
+        <result column="CHAN_TRAN_TYPE" property="chanTranType" />
+        <result column="TRAN_DATE" property="tranDate" />
+        <result column="TRAN_AMT" property="tranAmt" />
+        <result column="DUE_TRAN_MON" property="dueTranMon" />
+        <result column="DET_INFO" property="detInfo" />
+        <result column="CREATE_TIME" property="createTime" />
+        <result column="CREATE_USER" property="createUser" />
+        <result column="UPDATE_TIME" property="updateTime" />
+        <result column="UPDATE_USER" property="updateUser" />
+        <result column="DELETE_FLAG" property="deleteFlag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID AS "id", ENT_ACCT_ID AS "entAcctId", CHAN_TRAN_TYPE AS "chanTranType", TRAN_DATE AS "tranDate",
+        TRAN_AMT AS "tranAmt", DUE_TRAN_MON AS "dueTranMon", DET_INFO AS "detInfo", CREATE_TIME AS "createTime",
+        CREATE_USER AS "createUser", UPDATE_TIME AS "updateTime", UPDATE_USER AS "updateUser", DELETE_FLAG AS "deleteFlag"
+    </sql>
+
+    <select id="list" resultType="map">
+        select
+        <include refid="Base_Column_List"></include>
+        from ENT_ACCT_TRANS_FB
+        order by create_time DESC
+    </select>
+</mapper>
