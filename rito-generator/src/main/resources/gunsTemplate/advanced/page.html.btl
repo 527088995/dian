@@ -1,0 +1,40 @@
+@layout("/common/_container.html",{js:["/assets/modular/${context.moduleName}/${context.bizEnName}/${context.bizEnName}.js"]}){
+
+<div class="layui-body-header">
+    <span class="layui-body-header-title">${context.bizChName}管理</span>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-sm12 layui-col-md12 layui-col-lg12">
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <div class="layui-form toolbar">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <input id="condition" class="layui-input" type="text" placeholder="${context.bizChName}名称"/>
+                            </div>
+                            <div class="layui-inline">
+                                <button id="btnSearch" class="layui-btn icon-btn"><i class="layui-icon">&#xe615;</i>搜索</button>
+                                @if(shiro.hasPermission("/${context.bizEnName}/add")){
+                                <button id="btnAdd" class="layui-btn icon-btn"><i class="layui-icon">&#xe654;</i>添加</button>
+                                @}
+                            </div>
+                        </div>
+                    </div>
+                    <table class="layui-table" id="${context.bizEnName}Table" lay-filter="${context.bizEnName}Table"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="tableBar">
+    @if(shiro.hasPermission("/${context.bizEnName}/update")){
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改</a>
+    @}
+    @if(shiro.hasPermission("/${context.bizEnName}/delete")){
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</a>
+    @}
+</script>
+@}

@@ -1,0 +1,113 @@
+package ${controller.packageName};
+
+<% for(import in controller.imports!){ %>
+import ${import};
+<% } %>
+
+/**
+ * ${context.bizChName}控制器
+ *
+ * @author ${context.author}
+ * @Date ${tool.currentTime()}
+ */
+@Controller
+@RequestMapping("/${context.bizEnName}")
+public class ${context.entityName}Controller extends BaseController {
+
+    private String PREFIX = "/modular/${context.moduleName}/${context.bizEnName}/";
+
+    @Autowired
+    private I${context.entityName}Service ${context.bizEnName}Service;
+
+    /**
+     * 跳转到${context.bizChName}首页
+     */
+    @RequestMapping(value = "")
+    public String index() {
+        return PREFIX + "${context.bizEnName}.html";
+    }
+
+    /**
+     * 跳转到添加${context.bizChName}
+     */
+    @RequestMapping(value = "/${context.bizEnName}_add")
+    public String ${context.bizEnName}Add() {
+        return PREFIX + "${context.bizEnName}_add.html";
+    }
+
+    /**
+     * 跳转到修改${context.bizChName}
+     */
+    @RequestMapping(value = "/${context.bizEnName}_update", method = RequestMethod.GET)
+    public String ${context.bizEnName}Update(Long ${context.bizEnName}Id, Model model) {
+        ${context.entityName} ${context.bizEnName} = ${context.bizEnName}Service.selectById(${context.bizEnName}Id);
+        model.addAllAttributes(BeanUtil.beanToMap(${context.bizEnName}));
+        LogObjectHolder.me().set(${context.bizEnName});
+        return PREFIX + "${context.bizEnName}_edit.html";
+    }
+
+    /**
+     * 获取${context.bizChName}列表
+     */
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @ResponseBody
+    public Object list(String condition) {
+        Page page = LayuiPageFactory.defaultPage();
+        List<Map<String, Object>> list = this.${context.bizEnName}Service.list(page, condition);
+        page.setRecords(new BaseWrapper(list).wrap());
+        return LayuiPageFactory.createPageInfo(page);
+    }
+
+    /**
+     * 新增${context.bizChName}
+     */
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @BussinessLog(value = "新增${context.bizChName}", key = "${context.bizEnName}", dict = ${context.entityName}.class)
+    @ResponseBody
+    public Object add(${context.entityName} ${context.bizEnName}) {
+    if (ToolUtil.isOneEmpty(${context.bizEnName})) {
+                throw new ServiceException(BizExceptionEnum.REQUEST_NULL);
+            }
+        ${context.bizEnName}.setCreateUser(ShiroKit.getUserNotNull().getId());
+        ${context.bizEnName}.setCreateTime(new Date());
+        ${context.bizEnName}.setDeleteFlag(DelFlag.UNDELETED.getCode());
+        this.${context.bizEnName}Service.insert(${context.bizEnName});
+    return SUCCESS_TIP;
+    }
+
+    /**
+     * 删除${context.bizChName}
+     */
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @BussinessLog(value = "删除${context.bizChName}", key = "${context.bizEnName}Id", dict = ${context.entityName}.class)
+    @ResponseBody
+    public Object delete(@RequestParam Long ${context.bizEnName}Id) {
+    ${context.entityName} ${context.bizEnName} = new ${context.entityName}();
+    ${context.bizEnName}.setDeleteFlag(DelFlag.DELETED.getCode());
+    ${context.bizEnName}.set${context.entityName}Id(${context.bizEnName}Id);
+        ${context.bizEnName}Service.updateById(${context.bizEnName});
+        return SUCCESS_TIP;
+    }
+
+    /**
+     * 修改${context.bizChName}
+     */
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    @BussinessLog(value = "修改${context.bizChName}", key = "${context.bizEnName}Id", dict = ${context.entityName}.class)
+    @ResponseBody
+    public Object update(${context.entityName} ${context.bizEnName}) {
+        ${context.bizEnName}.setUpdateUser(ShiroKit.getUserNotNull().getId());
+        ${context.bizEnName}.setUpdateTime(new Date());
+        ${context.bizEnName}Service.updateById(${context.bizEnName});
+        return SUCCESS_TIP;
+    }
+
+    /**
+     * ${context.bizChName}详情
+     */
+    @RequestMapping(value = "/detail/{${context.bizEnName}Id}", method = RequestMethod.GET)
+    @ResponseBody
+    public Object detail(@PathVariable("${context.bizEnName}Id") Integer ${context.bizEnName}Id) {
+        return ${context.bizEnName}Service.selectById(${context.bizEnName}Id);
+    }
+}

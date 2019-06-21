@@ -1,0 +1,50 @@
+@layout("/common/_container.html",{bg:"bg-white",js:["/assets/modular/${context.moduleName}/${context.bizEnName}/${context.bizEnName}_edit.js"]}){
+
+<form id="${context.bizEnName}Form" lay-filter="${context.bizEnName}Form" class="layui-form model-form">
+    <input name="${context.bizEnName}Id" value="123{${context.bizEnName}Id}" type="hidden"/>
+
+    <% var leftSize = tool.toInt((table.fields.~size + 1) / 2); %>
+    <% var rightSize = tool.toInt(table.fields.~size - leftSize); %>
+    <% for(var i=0;i<leftSize;i++){ %>
+        <% if(i != (leftSize-1) ){ %>
+            <div class="layui-form-item">
+                <label class="layui-form-label">${table.fields[i].comment}<span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="${table.fields[i].propertyName}" value="123{${table.fields[i].propertyName}}"  placeholder="请输入${table.fields[i].comment}" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+        <% }else{ %>
+            <div class="layui-form-item">
+                <label class="layui-form-label">${table.fields[i].comment}<span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="${table.fields[i].propertyName}" value="123{${table.fields[i].propertyName}}" placeholder="请输入${table.fields[i].comment}" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+        <% } %>
+    <% } %>
+
+    <% for(var i=leftSize;i<table.fields.~size;i++){ %>
+        <% if(i != (rightSize-1) ){ %>
+            <div class="layui-form-item">
+                <label class="layui-form-label">${table.fields[i].comment}<span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="${table.fields[i].propertyName}" value="123{${table.fields[i].propertyName}}" placeholder="请输入${table.fields[i].comment}" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+        <% }else{ %>
+            <div class="layui-form-item">
+                <label class="layui-form-label">${table.fields[i].comment}<span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="${table.fields[i].propertyName}" value="123{${table.fields[i].propertyName}}" placeholder="请输入${table.fields[i].comment}" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+        <% } %>
+    <% } %>
+
+    <div class="layui-form-item text-right">
+        <button class="layui-btn layui-btn-primary" type="button" ew-event="backupPage" id="backupPage">取消</button>
+        <button class="layui-btn" lay-filter="btnSubmit" lay-submit>保存</button>
+    </div>
+</form>
+
+@}

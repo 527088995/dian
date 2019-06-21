@@ -1,0 +1,117 @@
+/**
+ * ${context.bizChName}管理初始化
+ */
+
+layui.use(['layer', 'form', 'table', 'admin', 'ax'], function () {
+    var $ = layui.$;
+    var layer = layui.layer;
+    var form = layui.form;
+    var table = layui.table;
+    var $ax = layui.ax;
+    var admin = layui.admin;
+
+    /**
+     * 系统管理--消息管理
+     */
+    var ${context.bizEnBigName} = {
+        tableId: "${context.bizEnName}Table"    //表格id
+    };
+
+    /**
+     * 初始化表格的列
+     */
+    ${context.bizEnBigName}.initColumn = function () {
+        return [[
+            {type: 'checkbox'},
+            { type: 'numbers', title: '序号', width: 50 },
+              <% for(item in table.fields!){ %>
+                    <% if(itemLP.last != true){ %>
+                        {title: '${item.comment}', field: '${item.propertyName}', visible: true, align: 'center', valign: 'middle'},
+                    <% }else{ %>
+                        {title: '${item.comment}', field: '${item.propertyName}', visible: true, align: 'center', valign: 'middle'},
+                    <% }} %>
+            {align: 'center', toolbar: '#tableBar', title: '操作', minWidth: 200}
+        ]];
+    };
+
+    /**
+     * 点击查询按钮
+     */
+    ${context.bizEnBigName}.search = function () {
+        var queryData = {};
+        queryData['condition'] = $("#condition").val();
+        table.reload(${context.bizEnBigName}.tableId, {where: queryData});
+    };
+
+    /**
+     * 弹出添加${context.bizChName}
+     */
+    ${context.bizEnBigName}.openAdd${context.bizEnBigName} = function () {
+        window.location.href = Feng.ctxPath + '/${context.bizEnName}/${context.bizEnName}_add';
+
+    };
+
+
+    /**
+     * 点击编辑${context.bizChName}
+     *
+     * @param data 点击按钮时候的行数据
+     */
+    ${context.bizEnBigName}.onEdit${context.bizEnBigName} = function (data) {
+
+        window.location.href = Feng.ctxPath + '/${context.bizEnName}/${context.bizEnName}_update?${context.bizEnName}Id=' + data.id;
+
+    };
+
+
+    /**
+     * 点击删除${context.bizChName}
+     *
+     * @param data 点击按钮时候的行数据
+     */
+    ${context.bizEnBigName}.onDelete${context.bizEnBigName} = function (data) {
+        var operation = function () {
+            var ajax = new $ax(Feng.ctxPath + "/${context.bizEnName}/delete", function (data) {
+                Feng.success("删除成功!");
+                table.reload(${context.bizEnBigName}.tableId);
+            }, function (data) {
+                Feng.error("删除失败!" + data.responseJSON.message + "!");
+            });
+            ajax.set("${context.bizEnName}Id", data.${context.bizEnName}Id);
+            ajax.start();
+        };
+        Feng.confirm("是否删除${context.bizChName} " + data.title + "?", operation);
+    };
+
+    // 渲染表格
+    var tableResult = table.render({
+        elem: '#' + ${context.bizEnBigName}.tableId,
+        url: Feng.ctxPath + '/${context.bizEnName}/list',
+        page: true,
+        height: "full-98",
+        cellMinWidth: 100,
+        cols: ${context.bizEnBigName}.initColumn()
+    });
+
+    // 搜索按钮点击事件
+    $('#btnSearch').click(function () {
+        ${context.bizEnBigName}.search();
+    });
+
+    // 添加按钮点击事件
+    $('#btnAdd').click(function () {
+        ${context.bizEnBigName}.openAdd${context.bizEnBigName}();
+    });
+
+    // 工具条点击事件
+    table.on('tool(' + ${context.bizEnBigName}.tableId + ')', function (obj) {
+        var data = obj.data;
+        var layEvent = obj.event;
+
+        if (layEvent === 'edit') {
+            ${context.bizEnBigName}.onEdit${context.bizEnBigName}(data);
+        } else if (layEvent === 'delete') {
+            ${context.bizEnBigName}.onDelete${context.bizEnBigName}(data);
+        }
+    });
+});
