@@ -1,0 +1,33 @@
+@layout("/common/_container.html",{js:["/assets/modular/system/sysTaskLog/sysTaskLog.js"]}){
+
+<div class="layui-body-header">
+    <span class="layui-body-header-title">任务管理日志管理</span>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-sm12 layui-col-md12 layui-col-lg12">
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <div class="layui-form toolbar">
+                        <div class="layui-form-item  text-right">
+                            <div class="layui-inline">
+                                <input id="taskId" value="${taskId}" type="hidden"/>
+                            </div>
+                            <div class="layui-inline">
+                                <button id="btnBack" class="layui-btn icon-btn layui-btn-warm"><i class="layui-icon">&#x1006;</i>关闭</button>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="layui-table" id="sysTaskLogTable" lay-filter="sysTaskLogTable"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="tableBar">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</a>
+</script>
+@}

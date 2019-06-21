@@ -1,0 +1,99 @@
+@layout("/common/_container.html",{bg:"bg-white",js:["/assets/modular/antiMoneyLaundering/antiMoneyLaundering/antiMoneyLaundering_edit.js"]}){
+
+<form id="antiMoneyLaunderingForm" lay-filter="antiMoneyLaunderingForm" class="layui-form model-form">
+    <input name="antiId" value="${antiId}" type="hidden"/>
+    <div class="layui-form-item text-right">
+        <button class="layui-btn layui-btn-primary" type="button" ew-event="closeDialog" id="backupPage">取消</button>
+        <button class="layui-btn" lay-filter="btnSubmit" lay-submit>保存</button>
+    </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">报告机构编码<span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="ricd" value="${ricd}"  placeholder="请输入报告机构编码" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">上报网点代码<span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="rpnc" value="${rpnc}"  placeholder="请输入上报网点代码" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">行业类别<span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="ritp" value="${ritp}"  placeholder="请输入行业类别" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">可疑交易报告紧急程度<span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="detr" value="${detr}"  placeholder="请输入可疑交易报告紧急程度" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">报送次数标志<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="torp" value="${torp}"  placeholder="请输入报送次数标志" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">初次报送的可疑交易报告报文名称<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="orxn" value="${orxn}"  placeholder="请输入初次报送的可疑交易报告报文名称" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">报送方向<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="dorp" value="${dorp}"  placeholder="请输入报送方向" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">其他报送方向<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="odrp" value="${odrp}"  placeholder="请输入其他报送方向" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">可疑交易报告触发点<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="tptr" value="${tptr}"  placeholder="请输入可疑交易报告触发点" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">其他可疑交易报告触发点<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="otpr" value="${otpr}"  placeholder="请输入其他可疑交易报告触发点" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">资金交易及客户行为情况<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="stcb" value="${stcb}"  placeholder="请输入资金交易及客户行为情况" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">疑点分析<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="aosp" value="${aosp}"  placeholder="请输入疑点分析" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">疑似涉罪类型<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="tosc" value="${tosc}"  placeholder="请输入疑似涉罪类型" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">可疑交易特征代码<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="stcr" value="${stcr}"  placeholder="请输入可疑交易特征代码" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+
+</form>
+
+@}

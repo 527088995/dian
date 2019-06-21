@@ -1,0 +1,276 @@
+@layout("/common/_container.html",{bg:"bg-white",js:["/assets/modular/financial/financeIncomeStatement07Fb/financeIncomeStatement07Fb_add.js"]}){
+
+<div class="layui-fluid " style="">
+    <div class="layui-card">
+        <div class="layui-card-body">
+            <form id="financeIncomeStatement07FbForm" lay-filter="financeIncomeStatement07FbForm"
+                  class="layui-form model-form">
+                <div class="layui-form-item text-right">
+                    <button class="layui-btn layui-btn-primary" type="button" ew-event="backupPage" id="backupPage">取消
+                    </button>
+                    <button class="layui-btn" lay-filter="btnSubmit" lay-submit>保存</button>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">企业编号</label>
+                        <div class="layui-input-inline">
+                            <input name="entName" placeholder="请输入企业编号" type="text" class="layui-input"
+                                   />
+                        </div>
+
+                        <label class="layui-form-label">信息记录状态 </label>
+                        <div class="layui-input-inline">
+                            <input name="status" placeholder="请输入信息记录状态 " type="text" class="layui-input"
+                                   lay-verify="required"
+                                   required/>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">信息报告日期</label>
+                        <div class="layui-input-inline">
+                            <input name="entCertType" placeholder="请输入信息报告日期" type="text" class="layui-input"
+                                   />
+                        </div>
+
+                        <label class="layui-form-label">企业身份标识号码</label>
+                        <div class="layui-input-inline">
+                            <input name="entCertNum" placeholder="请输入企业身份标识号码" type="text" class="layui-input"
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">信息报告日期</label>
+                        <div class="layui-input-inline">
+                            <input name="rptDate" id="rptDate" placeholder="请输入信息报告日期" autocomplete="off" type="text" class="layui-input"
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">报表年份</label>
+                        <div class="layui-input-inline">
+                            <input name="sheetYear" placeholder="请输入报表年份" type="text" class="layui-input"
+                                   />
+                        </div>
+
+                        <label class="layui-form-label">报表类型</label>
+                        <div class="layui-input-inline">
+                            <input name="sheetType" placeholder="请输入报表类型" type="text" class="layui-input"
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">报表类型细分</label>
+                        <div class="layui-input-inline">
+                            <input name="sheetTypeDivide" placeholder="请输入报表类型细分" type="text" class="layui-input"
+                                   />
+                        </div>
+
+                        <label class="layui-form-label">审计事务所名称</label>
+                        <div class="layui-input-inline">
+                            <input name="auditFirmName" placeholder="请输入审计事务所名称" type="text" class="layui-input"
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">审计人员名称</label>
+                        <div class="layui-input-inline">
+                            <input name="auditorName" placeholder="请输入审计人员名称" type="text" class="layui-input"
+                                   />
+                        </div>
+
+                        <label class="layui-form-label">审计时间</label>
+                        <div class="layui-input-inline">
+                            <input name="auditTime" id="auditTime" placeholder="请输入审计时间" autocomplete="off" type="text" class="layui-input"
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">客户资料维护机构代码</label>
+                        <div class="layui-input-inline">
+                            <input name="cimoc" placeholder="请输入客户资料维护机构代码" type="text" class="layui-input"
+                                   />
+                        </div>
+
+                        <label class="layui-form-label">报告时点说明代码</label>
+                        <div class="layui-input-inline">
+                            <input name="prtDateCode" placeholder="请输入报告时点说明代码" type="text" class="layui-input"
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">营业收入</label>
+                        <div class="layui-input-inline">
+                            <input name="revenueOfSales" placeholder="请输入营业收入" type="text" class="layui-input"
+                                   />
+                        </div>
+
+                        <label class="layui-form-label">营业成本</label>
+                        <div class="layui-input-inline">
+                            <input name="costOfSales" placeholder="请输入营业成本" type="text" class="layui-input"
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">营业税金及附加</label>
+                        <div class="layui-input-inline">
+                            <input name="businessAndOtherTaxes" placeholder="请输入营业税金及附加" type="text" class="layui-input"
+                                   />
+                        </div>
+
+                        <label class="layui-form-label">销售费用</label>
+                        <div class="layui-input-inline">
+                            <input name="sellingExpenses" placeholder="请输入销售费用" type="text" class="layui-input"
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">管理费用</label>
+                        <div class="layui-input-inline">
+                            <input name="generalAndAdministrativeExp" placeholder="请输入管理费用" type="text"
+                                   class="layui-input" />
+                        </div>
+
+                        <label class="layui-form-label">财务费用</label>
+                        <div class="layui-input-inline">
+                            <input name="financialExpense" placeholder="请输入财务费用" type="text" class="layui-input"
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">资产减值损失</label>
+                        <div class="layui-input-inline">
+                            <input name="impairmentLossOfAssets" placeholder="请输入资产减值损失" type="text" class="layui-input"
+                                   />
+                        </div>
+
+                        <label class="layui-form-label">公允价值变动净收益</label>
+                        <div class="layui-input-inline">
+                            <input name="polafcifv" placeholder="请输入公允价值变动净收益" type="text" class="layui-input"
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">投资净收益</label>
+                        <div class="layui-input-inline">
+                            <input name="investmentIncome" placeholder="请输入投资净收益" type="text" class="layui-input"
+                                   />
+                        </div>
+
+                        <label class="layui-form-label">对联营企业和合营企业的投资收益</label>
+                        <div class="layui-input-inline">
+                            <input name="iifabace" placeholder="请输入对联营企业和合营企业的投资收益" type="text" class="layui-input"
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">营业利润</label>
+                        <div class="layui-input-inline">
+                            <input name="operatingProfits" placeholder="请输入营业利润" type="text" class="layui-input"
+                                   />
+                        </div>
+
+                        <label class="layui-form-label">营业外收入</label>
+                        <div class="layui-input-inline">
+                            <input name="nonOperatingIncome" placeholder="请输入营业外收入" type="text" class="layui-input"
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">营业外支出</label>
+                        <div class="layui-input-inline">
+                            <input name="nonOperatingExpenses" placeholder="请输入营业外支出" type="text" class="layui-input"
+                                   />
+                        </div>
+
+                        <label class="layui-form-label">非流动资产损失</label>
+                        <div class="layui-input-inline">
+                            <input name="nonCurrentAssets" placeholder="请输入非流动资产损失" type="text" class="layui-input"
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">利润总额</label>
+                        <div class="layui-input-inline">
+                            <input name="profitBeforeTax" placeholder="请输入利润总额" type="text" class="layui-input"
+                                   />
+                        </div>
+
+                        <label class="layui-form-label">所得税费用</label>
+                        <div class="layui-input-inline">
+                            <input name="incomeTaxExpense" placeholder="请输入所得税费用" type="text" class="layui-input"
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">净利润</label>
+                        <div class="layui-input-inline">
+                            <input name="netProfit" placeholder="请输入净利润" type="text" class="layui-input"
+                                   />
+                        </div>
+
+                        <label class="layui-form-label">基本每股收益</label>
+                        <div class="layui-input-inline">
+                            <input name="basicEarningsPerShare" placeholder="请输入基本每股收益" type="text" class="layui-input"
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">稀释每股收益</label>
+                        <div class="layui-input-inline">
+                            <input name="dilutedEarningsPerShare" placeholder="请输入稀释每股收益" type="text"
+                                   class="layui-input" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@}
+
+<style>
+    .layui-form-label {
+        width: 240px;
+        text-align: right;
+        padding-left: 50px;
+        word-wrap: break-word;
+    }
+
+    .model_select {
+        width: 100%;
+    }
+
+</style>

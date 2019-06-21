@@ -1,0 +1,31 @@
+@layout("/common/_container.html",{plugins:["ztree"],js:["/assets/modular/demos/excel_import.js"]}){
+
+<div class="layui-body-header">
+    <span class="layui-body-header-title">用户管理</span>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-sm12">
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <div class="layui-form toolbar">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <button id="btnExp" class="layui-btn icon-btn">
+                                    <i class="layui-icon">&#xe67c;</i>导入excel并展示
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="layui-table" id="userTable" lay-filter="userTable"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="statusTpl">
+    <input type="checkbox" lay-filter="status" value="{{d.userId}}" lay-skin="switch" lay-text="正常|冻结" {{d.status=='ENABLE'?'checked':''}} />
+</script>
+@}

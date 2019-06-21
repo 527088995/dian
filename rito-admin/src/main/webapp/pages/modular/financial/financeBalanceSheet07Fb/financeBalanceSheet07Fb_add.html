@@ -1,0 +1,824 @@
+@layout("/common/_container.html",{bg:"bg-white",js:["/assets/modular/financial/financeBalanceSheet07Fb/financeBalanceSheet07Fb_add.js"]}){
+
+<div class="layui-fluid " style="">
+    <div class="layui-card">
+        <div class="layui-card-body">
+            <form id="financeBalanceSheet07FbForm" lay-filter="financeBalanceSheet07FbForm"
+                  class="layui-form model-form">
+                <div class="layui-form-item text-right">
+                    <button class="layui-btn layui-btn-primary" type="button" ew-event="backupPage" id="backupPage">取消
+                    </button>
+                    <button class="layui-btn" lay-filter="btnSubmit" lay-submit>保存</button>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">企业名称</label>
+                        <div class="layui-input-inline">
+                            <input name="entName" placeholder="请输入企业名称" type="text" class="layui-input"/>
+                        </div>
+                        <label class="layui-form-label">企业身份标识类型</label>
+                        <div class="layui-input-inline">
+                            <input name="entCertType" placeholder="请输入企业身份标识类型" type="text" class="layui-input"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">信息记录状态<span style="color: red;">*</span> </label>
+                    <div class="layui-input-inline">
+                        <input name="status" placeholder="请输入信息记录状态 " type="text" class="layui-input"
+
+                        />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">企业身份标识号码</label>
+                        <div class="layui-input-inline">
+                            <input name="entCertNum" placeholder="请输入企业身份标识号码" type="text" class="layui-input"
+                            />
+                        </div>
+
+                        <label class="layui-form-label">信息报告日期</label>
+                        <div class="layui-input-inline">
+                            <input name="rptDate" id="rptDate" placeholder="请输入信息报告日期" autocomplete="off" type="text" class="layui-input"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">报表年份</label>
+                        <div class="layui-input-inline">
+                            <input name="sheetYear" placeholder="请输入报表年份" type="text" class="layui-input"
+
+                            />
+                        </div>
+
+                        <label class="layui-form-label">报表类型</label>
+                        <div class="layui-input-inline">
+                            <input name="sheetType" placeholder="请输入报表类型" type="text" class="layui-input"
+
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">报表类型细分</label>
+                        <div class="layui-input-inline">
+                            <input name="sheetTypeDivide" placeholder="请输入报表类型细分" type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+
+                        <label class="layui-form-label">审计事务所名称<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="auditFirmName" placeholder="请输入审计事务所名称" type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">审计人员名称<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="auditorName" placeholder="请输入审计人员名称" type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                        <label class="layui-form-label">审计时间<span style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="auditTime" id="auditTime" placeholder="请输入审计时间" autocomplete="off" type="text"
+                                   class="layui-input"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">客户资料维护机构代码<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="cimoc" placeholder="请输入客户资料维护机构代码" type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+
+                        <label class="layui-form-label">报告时点说明代码<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="rptDateCode" placeholder="请输入报告时点说明代码" type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">货币资金<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="currencyFunds" placeholder="请输入货币资金" type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+
+                        <label class="layui-form-label">交易性金融资产<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="financialAssetsHeldForTrad"
+                                   placeholder="请输入交易性金融资产" type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">应收票据<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="notesReceivable" placeholder="请输入应收票据"
+                                   type="text" class="layui-input"
+
+                            />
+                        </div>
+
+                        <label class="layui-form-label">应收账款<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="accountsReceivable" placeholder="请输入应收账款"
+                                   type="text" class="layui-input"
+
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">预付账款<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="prepayments" placeholder="请输入预付账款"
+                                   type="text" class="layui-input"
+
+                            />
+                        </div>
+
+                        <label class="layui-form-label">应收利息<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="interestReceivable" placeholder="请输入应收利息"
+                                   type="text" class="layui-input"
+
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">应收股利<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="dividendsReceivable"
+                                   placeholder="请输入应收股利" type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+
+                        <label class="layui-form-label">其他应收款<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="otherReceivables"
+                                   placeholder="请输入其他应收款" type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">存货<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="inventories" placeholder="请输入存货"
+                                   type="text" class="layui-input"
+
+                            />
+                        </div>
+
+                        <label class="layui-form-label">一年内到期的非流动资产<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="cponca"
+                                   placeholder="请输入一年内到期的非流动资产" type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">其他流动资产<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="otherCurrentAssets"
+                                   placeholder="请输入其他流动资产" type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+
+                        <label class="layui-form-label">流动资产合计<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="totalCurrentAssets"
+                                   placeholder="请输入流动资产合计" type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">可供出售的金融资产<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="faafs"
+                                   placeholder="请输入可供出售的金融资产"
+                                   type="text" class="layui-input"
+
+                            />
+                        </div>
+
+                        <label class="layui-form-label">持有至到期投资<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="heldToMaturityInvestments"
+                                   placeholder="请输入持有至到期投资"
+                                   type="text" class="layui-input"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">长期股权投资<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="longTermEquityinvestment"
+                                   placeholder="请输入长期股权投资"
+                                   type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+
+                        <label class="layui-form-label">长期应收款<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="longTermReceivables"
+                                   placeholder="请输入长期应收款"
+                                   type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">投资性房地产<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="investmentProperties"
+                                   placeholder="请输入投资性房地产"
+                                   type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+
+                        <label class="layui-form-label">固定资产<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="fixedAssets"
+                                   placeholder="请输入固定资产"
+                                   type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">在建工程<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="constructionInProgress"
+                                   placeholder="请输入在建工程"
+                                   type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+
+                        <label class="layui-form-label">工程物资<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="constructionMaterials"
+                                   placeholder="请输入工程物资"
+                                   type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">固定资产清理<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="fapfd"
+                                   placeholder="请输入固定资产清理"
+                                   type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+
+                        <label class="layui-form-label">生产性生物资产<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="nonCurrentBiologicalAssets"
+                                   placeholder="请输入生产性生物资产"
+                                   type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">油气资产<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="oilAndGasAssets"
+                                   placeholder="请输入油气资产"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                        <label class="layui-form-label">无形资产<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="intangibleAssets"
+                                   placeholder="请输入无形资产"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">开发支出<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="developmentDisbursements"
+                                   placeholder="请输入开发支出"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                        <label class="layui-form-label">商誉<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="goodwill"
+                                   placeholder="请输入商誉"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">长期待摊费用<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="longTermDeferredExpenses"
+                                   placeholder="请输入长期待摊费用"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                        <label class="layui-form-label">递延所得税资产<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="deferredTaxAssets"
+                                   placeholder="请输入递延所得税资产"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">其他非流动资产<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="otherNonCurrentAssets"
+                                   placeholder="请输入其他非流动资产"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                        <label class="layui-form-label">非流动资产总计<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="totalNonCurrentAssets"
+                                   placeholder="请输入非流动资产总计"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">资产总计<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="totalAssets"
+                                   placeholder="请输入资产总计"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                        <label class="layui-form-label">短期借款<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="shortTermBorrowings"
+                                   placeholder="请输入短期借款"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">交易性金融负债<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="flhft"
+                                   placeholder="请输入交易性金融负债"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                        <label class="layui-form-label">应付票据<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="notesPayable"
+                                   placeholder="请输入应付票据"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">应付账款<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="accountsPayable"
+                                   placeholder="请输入应付账款"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                        <label class="layui-form-label">预收账款<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="receiptsInadvance"
+                                   placeholder="请输入预收账款"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">应付利息<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="interestPayable"
+                                   placeholder="请输入应付利息"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                        <label class="layui-form-label">应付职工薪酬<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="employeeBenefitsPayable"
+                                   placeholder="请输入应付职工薪酬"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">应交税费<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="taxsPayable"
+                                   placeholder="请输入应交税费"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                        <label class="layui-form-label">应付股利<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="dividendsPayable"
+                                   placeholder="请输入应付股利"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">其他应付款<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="otherPayables"
+                                   placeholder="请输入其他应付款"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                        <label class="layui-form-label">一年内到期的非流动负债<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="cpoltl"
+                                   placeholder="请输入一年内到期的非流动负债"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">其他流动负债<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="otherCurrentLiabilities"
+                                   placeholder="请输入其他流动负债"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                        <label class="layui-form-label">流动负债合计<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="totalCurrentLiabilities"
+                                   placeholder="请输入流动负债合计"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">长期借款<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="longTermBorrowings"
+                                   placeholder="请输入长期借款"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                        <label class="layui-form-label">应付债券<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="bondsPayables"
+                                   placeholder="请输入应付债券"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">长期应付款<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="longTermPayables"
+                                   placeholder="请输入长期应付款"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                        <label class="layui-form-label">专项应付款<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="grantsPayable"
+                                   placeholder="请输入专项应付款"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">预计负债<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="provisions"
+                                   placeholder="请输入预计负债"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                        <label class="layui-form-label">递延所得税负债<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="deferredTaxliabilities"
+                                   placeholder="请输入递延所得税负债"
+                                   type="text"
+                                   class="layui-input"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">其他非流动负债<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="otherNonCurrentLiabilities"
+                                   placeholder="请输入其他非流动负债"
+                                   type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+
+                        <label class="layui-form-label">非流动负债合计<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="totalNonCurrentLiabilities"
+                                   placeholder="请输入非流动负债合计"
+                                   type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">负债合计<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="totalLiabilities"
+                                   placeholder="请输入负债合计"
+                                   type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+
+                        <label class="layui-form-label">实收资本（或股本）<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="pcosc"
+                                   placeholder="请输入实收资本（或股本）"
+                                   type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">资本公积<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="capitalrRserve"
+                                   placeholder="请输入资本公积"
+                                   type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+                        <label class="layui-form-label">减：库存股<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="lessTreasuryStocks"
+                                   placeholder="请输入减：库存股"
+                                   type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">盈余公积<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="surplusReserve"
+                                   placeholder="请输入盈余公积"
+                                   type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+
+                        <label class="layui-form-label">未分配利润<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="unappropriatedProfit"
+                                   placeholder="请输入未分配利润"
+                                   type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">所有者权益合计<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="totalEquity"
+                                   placeholder="请输入所有者权益合计"
+                                   type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+
+                        <label class="layui-form-label">负债和所有者权益合计<span
+                                style="color: red;">*</span></label>
+                        <div class="layui-input-inline">
+                            <input name="totalEquityAndLiabilities"
+                                   placeholder="请输入负债和所有者权益合计"
+                                   type="text"
+                                   class="layui-input"
+
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+@}
+<style>
+    .layui-form-label {
+        width: 240px;
+        text-align: right;
+        padding-left: 50px;
+        word-wrap: break-word;
+    }
+
+    .model_select {
+        width: 100%;
+    }
+
+</style>

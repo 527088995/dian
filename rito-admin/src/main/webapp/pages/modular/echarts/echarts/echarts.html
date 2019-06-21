@@ -1,0 +1,30 @@
+@layout("/common/_container.html",{js:["/assets/modular/echarts/echarts/echarts.js"]}){
+
+<div class="layui-body-header">
+    <span class="layui-body-header-title">测试Echarts管理</span>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-lg12">
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <div class="layui-form toolbar">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <input id="condition" class="layui-input" type="text" placeholder="测试Echarts名称"/>
+                            </div>
+                            <div class="layui-inline" id="speedChart" style="display: none;">
+                                <div id="speedChartMain" style="width: 600px; height: 400px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="layui-table" id="echartsTable" lay-filter="echartsTable"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@}

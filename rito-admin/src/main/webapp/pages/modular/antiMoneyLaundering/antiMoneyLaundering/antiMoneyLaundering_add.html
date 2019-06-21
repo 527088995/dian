@@ -1,0 +1,344 @@
+@layout("/common/_container.html",{bg:"bg-white",js:["/assets/modular/antiMoneyLaundering/antiMoneyLaundering/antiMoneyLaundering_add.js"]}){
+
+<div class="layui-body-header">
+    <span class="layui-body-header-title">反洗钱增加</span>
+</div>
+<div class="layui-fluid " style="">
+    <div class="layui-card">
+        <div class="layui-card-body">
+            <form id="antiMoneyLaunderingForm" lay-filter="antiMoneyLaunderingForm" class="layui-form model-form">
+                <div class="layui-form-item text-right">
+                    <button class="layui-btn layui-btn-primary" type="button" ew-event="closeDialog" id="backupPage">取消</button>
+                    <button class="layui-btn" lay-filter="btnSubmit" lay-submit>保存</button>
+                </div>
+                <input name="antiId" type="hidden"/>
+                <div class="layui-form-item" style="border-bottom:1px dashed #F2F2F2">
+                    <h1 style="padding-left: 50px;font-size: 30px;padding-bottom: 30px">报告基本信息</h1>
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label" >报告机构编码<span style="color: red;">*</span></label>
+                                <div class="layui-input-inline">
+                                    <input name="ricd" type="text" class="layui-input" style="width: 130%"
+                                           />
+                                </div>
+                                <label class="layui-form-label" >上报网点代码<span style="color: red;">*</span></label>
+                                <div class="layui-input-inline">
+                                    <input name="rpnc" type="text" class="layui-input" style="width: 130%"
+                                           />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label" >行业类别<span style="color: red;">*</span></label>
+                                <div class="layui-input-inline">
+                                    <input name="ritp" type="text" class="layui-input" style="width: 130%"
+                                           />
+                                </div>
+                                <label class="layui-form-label" >可疑交易报告紧急程度<span style="color: red;">*</span></label>
+                                <div class="layui-input-inline">
+                                    <input name="detr" type="text" class="layui-input"
+                                           style="width: 130%"
+                                           />
+                                </div>
+                            </div>
+                        </div>
+<!--                        <div class="layui-form-item">-->
+<!--                            <div class="layui-inline">-->
+<!--                                <label class="layui-form-label" >报送次数标志<span style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="torp" type="text" class="layui-input" readonly="true" style="width: 130%;background-color: #e8e8e8"-->
+<!--                                           value="1"/>-->
+<!--                                </div>-->
+<!--                                <label class="layui-form-label" >初次报送的可疑交易报告报文名称<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="orxn" type="text" class="layui-input"-->
+<!--                                           style="width: 130%"-->
+<!--                                           -->
+<!--                                           />-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="layui-form-item">-->
+<!--                            <div class="layui-inline">-->
+<!--                                <label class="layui-form-label" >报送方向<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="dorp" type="text" class="layui-input" style="width: 130%"-->
+<!--                                           />-->
+<!--                                </div>-->
+<!--                                <label class="layui-form-label" >其他报送方向<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="odrp" type="text" class="layui-input" style="width: 130%"-->
+<!--                                           />-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="layui-form-item">-->
+<!--                            <div class="layui-inline">-->
+<!--                                <label class="layui-form-label" >可疑交易报告触发点<span style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="tptr" type="text" class="layui-input"-->
+<!--                                           style="width: 130%"-->
+<!--                                           />-->
+<!--                                </div>-->
+<!--                                <label class="layui-form-label" >其他可疑交易报告触发点<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="otpr" type="text" class="layui-input"-->
+<!--                                           style="width: 130%"-->
+<!--                                           />-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="layui-form-item">-->
+<!--                            <div class="layui-inline">-->
+<!--                                <label class="layui-form-label" >资金交易及客户行为情况<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="stcb" type="text" class="layui-input"-->
+<!--                                           style="width: 130%"-->
+<!--                                           />-->
+<!--                                </div>-->
+<!--                                <label class="layui-form-label" >疑点分析<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="aosp" type="text" class="layui-input" style="width: 130%"-->
+<!--                                           -->
+<!--                                           />-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="layui-form-item">-->
+<!--                            <div class="layui-inline">-->
+<!--                                <label class="layui-form-label" >疑似涉罪类型<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="tosc" type="text" class="layui-input" style="width: 130%"-->
+<!--                                           -->
+<!--                                           />-->
+<!--                                </div>-->
+<!--                                <label class="layui-form-label" >可疑交易特征代码<span style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="stcr"  type="text" class="layui-input"-->
+<!--                                           style="width: 130%"-->
+<!--                                           />-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label" >可疑交易或事件起始日期<span
+                                        style="color: red;">*</span></label>
+                                <div class="layui-input-inline">
+                                    <input name="stcb" type="text" class="layui-input"
+                                           style="width: 130%;" autocomplete="off" id="stcb_start"
+                                            />
+                                </div>
+                                <label class="layui-form-label" >可疑交易或事件结束日期<span
+                                        style="color: red;">*</span></label>
+                                <div class="layui-input-inline">
+                                    <input name="stcb" type="text" class="layui-input"
+                                           style="width: 130%" autocomplete="off" id="stcb_stop"
+                                            />
+                                </div>
+                            </div>
+                        </div>
+<!--                        <div class="layui-form-item">-->
+<!--                        <div class="layui-inline">-->
+<!--                            <label class="layui-form-label" >交易信息备注<span-->
+<!--                                    style="color: red;">*</span></label>-->
+<!--                            <div class="layui-input-inline">-->
+<!--                                <input name="rotf" type="text" class="layui-input" style="width: 390%"-->
+<!--                                       -->
+<!--                                       />-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+
+<!--                <div class="layui-form-item" style="padding-top: 20px">-->
+<!--                    <h1 style="padding-left: 50px;font-size: 30px;padding-bottom: 30px">可疑主体信息</h1>-->
+<!--                        <div class="layui-form-item">-->
+<!--                            <div class="layui-inline">-->
+<!--                                <label class="layui-form-label" >可疑主体职业( 对私 )或行业( 对公 )<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="sevc" type="text" class="layui-input" style="width: 130%"-->
+<!--                                           />-->
+<!--                                </div>-->
+<!--                                <label class="layui-form-label" >可疑主体姓名/名称<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="senm" type="text" class="layui-input" style="width: 130%"-->
+<!--                                           />-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="layui-form-item">-->
+<!--                            <div class="layui-inline">-->
+<!--                                <label class="layui-form-label" >可疑主体身份证件/证明文件类型<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline" style="width: 247px;margin-right: -46px">-->
+<!--                                    <select class="model_select" name="setp"  lay-verify="|card">-->
+<!--                                    </select>-->
+<!--                                </div>-->
+<!--                                <label class="layui-form-label" >可疑主体身份证件/证明文件号码<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="seid" type="text" class="layui-input" style="width: 130%;"-->
+<!--                                           lay-verify="IDnumber|cardLength|bracket"-->
+<!--                                           />-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="layui-form-item">-->
+<!--                            <div class="layui-inline">-->
+<!--                                <label class="layui-form-label">其他身份证件/证明文件类型<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline" style="width: 247px;margin-right: -46px">-->
+<!--                                    <select class="model_select this_select" name="oitp" lay-filter="aihao" lay-verify="|card">-->
+<!--                                    </select>-->
+<!--                                </div>-->
+<!--                                <label class="layui-form-label" >可疑主体国籍<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="stnt" type="text" class="layui-input"-->
+<!--                                           style="width: 130%"-->
+<!--                                           -->
+<!--                                           />-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="layui-form-item">-->
+<!--                            <div class="layui-inline">-->
+<!--                                <label class="layui-form-label" >可疑主体联系方式<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="scif" type="text" class="layui-input" style="width: 130%"-->
+<!--                                           />-->
+<!--                                </div>-->
+<!--                                <label class="layui-form-label" >可疑主体法定代表人姓名<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="srnm" type="text" class="layui-input" style="width: 130%"-->
+<!--                                           />-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="layui-form-item">-->
+<!--                            <div class="layui-inline">-->
+<!--                                <label class="layui-form-label" >可疑主体法定代表人身份证件类型<span style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline" style="width: 247px;margin-right: -46px">-->
+<!--                                    <select class="model_select" name="srit" lay-filter="aihao" lay-verify="|card">-->
+<!--                                    </select>-->
+<!--                                </div>-->
+<!--                                <label class="layui-form-label" >可疑主体法定代表人身份证件号码<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="srid"  type="text" class="layui-input"-->
+<!--                                           style="width: 130%"-->
+<!--                                           lay-verify="IDNumber|cardLength|bracket"/>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="layui-form-item">-->
+<!--                            <div class="layui-inline">-->
+<!--                                <label class="layui-form-label" >可疑主体法定代表人其他身份证件/证明文件类型<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline" style="width: 247px;margin-right: -46px">-->
+<!--                                    <select class="model_select this_select" name="orit" lay-filter="aihao" lay-verify="|card">-->
+<!--                                    </select>-->
+<!--                                </div>-->
+<!--                                <label class="layui-form-label" >可疑主体控股股东或实际控制人名称<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="scnm" type="text" class="layui-input" style="width: 130%"-->
+<!--                                           -->
+<!--                                           />-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="layui-form-item">-->
+<!--                            <div class="layui-inline">-->
+<!--                                <label class="layui-form-label" >可疑主体控股股东或实际控制人身份证件/证明文件类型<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline" style="width: 247px;margin-right: -46px">-->
+<!--                                    <select class="model_select" name="scit" lay-filter="aihao" lay-verify="|card">-->
+<!--                                    </select>-->
+<!--                                </div>-->
+<!--                                <label class="layui-form-label"> 可疑主体控股股东或实际控制人身份证件/证明文件号码<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="scid"  type="text" class="layui-input"-->
+<!--                                           style="width: 130%"-->
+<!--                                           lay-verify="IDNumber|cardLength|bracket" />-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="layui-form-item">-->
+<!--                            <div class="layui-inline">-->
+<!--                                <label class="layui-form-label" >可疑主体控股股东其他身份证件/证明文件类型<span style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline" style="width: 247px;margin-right: -46px">-->
+<!--                                    <select class="model_select this_select" name="ocit" lay-filter="aihao" lay-verify="|card">-->
+<!--                                    </select>-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash;                                <div class="layui-input-inline">&ndash;&gt;-->
+<!--                                &lt;!&ndash;                                    <input name="ocit"  type="text" class="layui-input"&ndash;&gt;-->
+<!--                                &lt;!&ndash;                                           style="width: 130%"&ndash;&gt;-->
+<!--                                &lt;!&ndash;                                           />&ndash;&gt;-->
+<!--                                &lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--                                <label class="layui-form-label" ><span-->
+<!--                                        style="color: red;"></span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <span></span>-->
+<!--                                </div>-->
+
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="layui-form-item">-->
+<!--                            <div class="layui-inline">-->
+<!--                                <label class="layui-form-label">可疑主体所在银行账号<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="scba"  type="text" class="layui-input"-->
+<!--                                           style="width: 130%"-->
+<!--                                           -->
+<!--                                           />-->
+<!--                                </div>-->
+<!--                                <label class="layui-form-label" >可疑主体所在银行名称<span-->
+<!--                                        style="color: red;">*</span></label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input name="scbn"  type="text" class="layui-input" style="width: 130%"-->
+<!--                                           -->
+<!--                                           />-->
+<!--                                </div>-->
+
+<!--                            </div>-->
+<!--                        </div>-->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@}
+<style>
+    .layui-form-label{
+        width: 240px;
+        text-align: right;
+        padding-left: 50px;
+        word-wrap: break-word;
+   }
+    .model_select{
+        width: 100%;
+    }
+
+</style>
+
+
+
+

@@ -1,0 +1,81 @@
+@layout("/common/_container.html",{bg:"bg-white",js:["/assets/modular/toLoan/entAcctTransFb/entAcctTransFb_add.js"]}){
+
+<form id="entAcctTransFbForm" lay-filter="entAcctTransFbForm" class="layui-form model-form">
+
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">借款账户ID<span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="entAcctId" placeholder="请输入借款账户ID" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">交易类型<span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="chanTranType" placeholder="请输入交易类型" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+<!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">交易日期<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="tranDate" placeholder="请输入交易日期" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">交易金额<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="tranAmt" placeholder="请输入交易金额" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">到期日期变更月数<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="dueTranMon" placeholder="请输入到期日期变更月数" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">交易明细信息<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="detInfo" placeholder="请输入交易明细信息" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label"><span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="createTime" placeholder="请输入" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label"><span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="createUser" placeholder="请输入" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label"><span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="updateTime" placeholder="请输入" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label"><span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="updateUser" placeholder="请输入" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label"><span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="deleteFlag" placeholder="请输入" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+
+    <div class="layui-form-item text-right">
+        <button class="layui-btn layui-btn-primary" type="button" ew-event="backupPage" id="backupPage">取消</button>
+        <button class="layui-btn" lay-filter="btnSubmit" lay-submit>保存</button>
+    </div>
+</form>
+
+@}
+

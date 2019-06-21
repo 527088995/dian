@@ -1,0 +1,485 @@
+@layout("/common/_container.html",{bg:"bg-white",js:["/assets/modular/financial/financeBalanceSheet07Fb/financeBalanceSheet07Fb_edit.js"]}){
+
+<form id="financeBalanceSheet07FbForm" lay-filter="financeBalanceSheet07FbForm" class="layui-form model-form">
+    <input name="id" value="${id}" type="hidden"/>
+
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">企业名称<span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="entName" value="${entName}"  placeholder="请输入企业名称" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">企业身份标识类型<span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="entCertType" value="${entCertType}"  placeholder="请输入企业身份标识类型" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">信息记录状态 <span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="status" value="${status}" placeholder="请输入信息记录状态 " type="text" class="layui-input"
+                           lay-verify="required" required/>
+                </div>
+            </div>
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">企业身份标识号码<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="entCertNum" value="${entCertNum}"  placeholder="请输入企业身份标识号码" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">信息报告日期<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="rptDate" value="${rptDate}"  placeholder="请输入信息报告日期" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">报表年份<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="sheetYear" value="${sheetYear}"  placeholder="请输入报表年份" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">报表类型<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="sheetType" value="${sheetType}"  placeholder="请输入报表类型" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">报表类型细分<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="sheetTypeDivide" value="${sheetTypeDivide}"  placeholder="请输入报表类型细分" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">审计事务所名称<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="auditFirmName" value="${auditFirmName}"  placeholder="请输入审计事务所名称" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">审计人员名称<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="auditorName" value="${auditorName}"  placeholder="请输入审计人员名称" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">审计时间<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="auditTime" value="${auditTime}"  placeholder="请输入审计时间" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">客户资料维护机构代码<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="cimoc" value="${cimoc}"  placeholder="请输入客户资料维护机构代码" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">报告时点说明代码<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="rptDateCode" value="${rptDateCode}"  placeholder="请输入报告时点说明代码" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">货币资金<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="currencyFunds" value="${currencyFunds}"  placeholder="请输入货币资金" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">交易性金融资产<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="financialAssetsHeldForTrad" value="${financialAssetsHeldForTrad}"  placeholder="请输入交易性金融资产" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">应收票据<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="notesReceivable" value="${notesReceivable}"  placeholder="请输入应收票据" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">应收账款<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="accountsReceivable" value="${accountsReceivable}"  placeholder="请输入应收账款" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">预付账款<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="prepayments" value="${prepayments}"  placeholder="请输入预付账款" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">应收利息<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="interestReceivable" value="${interestReceivable}"  placeholder="请输入应收利息" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">应收股利<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="dividendsReceivable" value="${dividendsReceivable}"  placeholder="请输入应收股利" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">其他应收款<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="otherReceivables" value="${otherReceivables}"  placeholder="请输入其他应收款" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">存货<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="inventories" value="${inventories}"  placeholder="请输入存货" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">一年内到期的非流动资产<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="cponca" value="${cponca}"  placeholder="请输入一年内到期的非流动资产" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">其他流动资产<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="otherCurrentAssets" value="${otherCurrentAssets}"  placeholder="请输入其他流动资产" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">流动资产合计<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="totalCurrentAssets" value="${totalCurrentAssets}"  placeholder="请输入流动资产合计" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">可供出售的金融资产<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="faafs" value="${faafs}"  placeholder="请输入可供出售的金融资产" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">持有至到期投资<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="heldToMaturityInvestments" value="${heldToMaturityInvestments}"  placeholder="请输入持有至到期投资" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">长期股权投资<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="longTermEquityinvestment" value="${longTermEquityinvestment}"  placeholder="请输入长期股权投资" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">长期应收款<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="longTermReceivables" value="${longTermReceivables}"  placeholder="请输入长期应收款" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">投资性房地产<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="investmentProperties" value="${investmentProperties}"  placeholder="请输入投资性房地产" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">固定资产<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="fixedAssets" value="${fixedAssets}"  placeholder="请输入固定资产" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">在建工程<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="constructionInProgress" value="${constructionInProgress}"  placeholder="请输入在建工程" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">工程物资<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="constructionMaterials" value="${constructionMaterials}"  placeholder="请输入工程物资" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">固定资产清理<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="fapfd" value="${fapfd}"  placeholder="请输入固定资产清理" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">生产性生物资产<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="nonCurrentBiologicalAssets" value="${nonCurrentBiologicalAssets}"  placeholder="请输入生产性生物资产" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">油气资产<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="oilAndGasAssets" value="${oilAndGasAssets}"  placeholder="请输入油气资产" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">无形资产<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="intangibleAssets" value="${intangibleAssets}"  placeholder="请输入无形资产" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">开发支出<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="developmentDisbursements" value="${developmentDisbursements}"  placeholder="请输入开发支出" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">商誉<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="goodwill" value="${goodwill}"  placeholder="请输入商誉" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">长期待摊费用<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="longTermDeferredExpenses" value="${longTermDeferredExpenses}" placeholder="请输入长期待摊费用" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">递延所得税资产<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="deferredTaxAssets" value="${deferredTaxAssets}" placeholder="请输入递延所得税资产" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">其他非流动资产<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="otherNonCurrentAssets" value="${otherNonCurrentAssets}" placeholder="请输入其他非流动资产" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">非流动资产总计<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="totalNonCurrentAssets" value="${totalNonCurrentAssets}" placeholder="请输入非流动资产总计" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">资产总计<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="totalAssets" value="${totalAssets}" placeholder="请输入资产总计" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">短期借款<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="shortTermBorrowings" value="${shortTermBorrowings}" placeholder="请输入短期借款" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">交易性金融负债<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="flhft" value="${flhft}" placeholder="请输入交易性金融负债" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">应付票据<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="notesPayable" value="${notesPayable}" placeholder="请输入应付票据" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">应付账款<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="accountsPayable" value="${accountsPayable}" placeholder="请输入应付账款" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">预收账款<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="receiptsInadvance" value="${receiptsInadvance}" placeholder="请输入预收账款" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">应付利息<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="interestPayable" value="${interestPayable}" placeholder="请输入应付利息" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">应付职工薪酬<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="employeeBenefitsPayable" value="${employeeBenefitsPayable}" placeholder="请输入应付职工薪酬" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">应交税费<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="taxsPayable" value="${taxsPayable}" placeholder="请输入应交税费" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">应付股利<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="dividendsPayable" value="${dividendsPayable}" placeholder="请输入应付股利" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">其他应付款<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="otherPayables" value="${otherPayables}" placeholder="请输入其他应付款" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">一年内到期的非流动负债<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="cpoltl" value="${cpoltl}" placeholder="请输入一年内到期的非流动负债" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">其他流动负债<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="otherCurrentLiabilities" value="${otherCurrentLiabilities}" placeholder="请输入其他流动负债" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">流动负债合计<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="totalCurrentLiabilities" value="${totalCurrentLiabilities}" placeholder="请输入流动负债合计" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">长期借款<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="longTermBorrowings" value="${longTermBorrowings}" placeholder="请输入长期借款" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">应付债券<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="bondsPayables" value="${bondsPayables}" placeholder="请输入应付债券" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">长期应付款<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="longTermPayables" value="${longTermPayables}" placeholder="请输入长期应付款" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">专项应付款<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="grantsPayable" value="${grantsPayable}" placeholder="请输入专项应付款" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">预计负债<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="provisions" value="${provisions}" placeholder="请输入预计负债" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">递延所得税负债<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="deferredTaxliabilities" value="${deferredTaxliabilities}" placeholder="请输入递延所得税负债" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">其他非流动负债<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="otherNonCurrentLiabilities" value="${otherNonCurrentLiabilities}" placeholder="请输入其他非流动负债" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">非流动负债合计<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="totalNonCurrentLiabilities" value="${totalNonCurrentLiabilities}" placeholder="请输入非流动负债合计" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">负债合计<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="totalLiabilities" value="${totalLiabilities}" placeholder="请输入负债合计" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">实收资本（或股本）<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="pcosc" value="${pcosc}" placeholder="请输入实收资本（或股本）" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">资本公积<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="capitalrRserve" value="${capitalrRserve}" placeholder="请输入资本公积" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">减：库存股<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="lessTreasuryStocks" value="${lessTreasuryStocks}" placeholder="请输入减：库存股" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">盈余公积<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="surplusReserve" value="${surplusReserve}" placeholder="请输入盈余公积" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">未分配利润<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="unappropriatedProfit" value="${unappropriatedProfit}" placeholder="请输入未分配利润" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">所有者权益合计<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="totalEquity" value="${totalEquity}" placeholder="请输入所有者权益合计" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">负债和所有者权益合计<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="totalEquityAndLiabilities" value="${totalEquityAndLiabilities}" placeholder="请输入负债和所有者权益合计" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">创建时间<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="createTime" value="${createTime}" placeholder="请输入创建时间" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">删除标志<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="deleteFlag" value="${deleteFlag}" placeholder="请输入删除标志" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">创建人用户主键ID<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="createUser" value="${createUser}" placeholder="请输入创建人用户主键ID" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">最后修改人员的用户ID<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="updateUser" value="${updateUser}" placeholder="请输入最后修改人员的用户ID" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">最后修改时间<span style="color: red;">*</span></label>-->
+<!--                <div class="layui-input-block">-->
+<!--                    <input name="updateTime" value="${updateTime}" placeholder="请输入最后修改时间" type="text" class="layui-input" lay-verify="required" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+
+    <div class="layui-form-item text-right">
+        <button class="layui-btn layui-btn-primary" type="button" ew-event="backupPage" id="backupPage">取消</button>
+        <button class="layui-btn" lay-filter="btnSubmit" lay-submit>保存</button>
+    </div>
+</form>
+
+@}

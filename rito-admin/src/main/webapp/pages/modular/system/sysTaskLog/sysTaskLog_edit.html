@@ -1,0 +1,74 @@
+@layout("/common/_container.html",{bg:"bg-white",js:["/assets/modular/system/sysTaskLog/sysTaskLog_edit.js"]}){
+
+<form id="sysTaskLogForm" lay-filter="sysTaskLogForm" class="layui-form model-form">
+    <input name="sysTaskLogId" value="${sysTaskLogId}" type="hidden"/>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">主键<span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="id" value="${id}"  placeholder="请输入主键" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">任务名<span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="name" value="${name}"  placeholder="请输入任务名" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">执行时间<span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="execAt" value="${execAt}"  placeholder="请输入执行时间" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">执行结果（成功:1、失败:0)<span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="execSuccess" value="${execSuccess}"  placeholder="请输入执行结果（成功:1、失败:0)" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">抛出异常<span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="jobException" value="${jobException}" placeholder="请输入抛出异常" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="idTask" value="${idTask}" placeholder="请输入" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="createTime" value="${createTime}" placeholder="请输入" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="createUser" value="${createUser}" placeholder="请输入" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="updateTime" value="${updateTime}" placeholder="请输入" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="updateUser" value="${updateUser}" placeholder="请输入" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+
+    <div class="layui-form-item text-right">
+        <button class="layui-btn layui-btn-primary" type="button" ew-event="backupPage" id="backupPage">取消</button>
+        <button class="layui-btn" lay-filter="btnSubmit" lay-submit>保存</button>
+    </div>
+</form>
+
+@}

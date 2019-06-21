@@ -1,0 +1,68 @@
+@layout("/common/_container.html",{title:"添加数据源",bg:"bg-white",js:["/assets/modular/generator/db_add.js"]}){
+
+<div class="layui-body-header">
+    <span class="layui-body-header-title">添加数据源</span>
+</div>
+
+<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+        <li id="code_gen">代码生成</li>
+        <li id="db_config">数据库配置</li>
+        <li class="layui-this" id="add_db">添加数据源</li>
+    </ul>
+    <div class="layui-tab-content" style="height: 100px;">
+        <div class="layui-tab-item">加载中...</div>
+        <div class="layui-tab-item">加载中...</div>
+        <div class="layui-tab-item layui-show">
+            <div class="layui-fluid">
+                <div class="layui-row layui-col-space15">
+                    <div class="layui-col-xs12">
+                        <div class="layui-card">
+                            <div class="layui-card-body">
+                                <form class="layui-form" lay-filter="dbAddForm">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">数据源名称</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="dbName" lay-verify="title" autocomplete="off" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">jdbc驱动</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="jdbcDriver" lay-verify="title" autocomplete="off" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">jdbc url</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="jdbcUrl" lay-verify="title" autocomplete="off" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">数据库账号</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="userName" lay-verify="title" autocomplete="off" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">数据库密码</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="password" lay-verify="title" autocomplete="off" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <button class="layui-btn" lay-filter="submitDb" lay-submit>提交</button>
+                                            <button type="reset" class="layui-btn layui-btn-primary" id="resetBtn">重置</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@}

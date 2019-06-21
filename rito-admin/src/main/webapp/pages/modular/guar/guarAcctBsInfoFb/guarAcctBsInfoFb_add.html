@@ -1,0 +1,225 @@
+@layout("/common/_container.html",{bg:"bg-white",js:["/assets/modular/guar/guarAcctBsInfoFb/guarAcctBsInfoFb_add.js"]}){
+
+<form id="guarAcctBsInfoFbForm" lay-filter="guarAcctBsInfoFbForm" class="layui-form model-form">
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">账户类型<span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="acctType" placeholder="请输入账户类型" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">信息记录状态 <span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="status" placeholder="请输入信息记录状态 " type="text" class="layui-input" lay-verify="required" required/>
+        </div>
+    </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">账户标识码<span style="color: red;">*</span></label>
+                <div class="layui-input-block">
+                    <input name="acctCode" placeholder="请输入账户标识码" type="text" class="layui-input" lay-verify="required" required/>
+                </div>
+            </div>
+<!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">信息报告日期<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="rptDate" placeholder="请输入信息报告日期" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">报告时点说明代码<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="rptDateCode" placeholder="请输入报告时点说明代码" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">债务人名称<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="name" placeholder="请输入债务人名称" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">债务人身份标识类型<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="idType" placeholder="请输入债务人身份标识类型" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">债务人身份标识号码<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="idNum" placeholder="请输入债务人身份标识号码" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">业务管理机构代码<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="mngmtOrgCode" placeholder="请输入业务管理机构代码" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">担保业务大类<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="busiLines" placeholder="请输入担保业务大类" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">担保业务种类细分<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="busiDtilLines" placeholder="请输入担保业务种类细分" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">开户日期<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="openDate" placeholder="请输入开户日期" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">担保金额<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="guarAmt" placeholder="请输入担保金额" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">币种<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="cy" placeholder="请输入币种" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">到期日期<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="dueDate" placeholder="请输入到期日期" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">反担保方式<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="guarMode" placeholder="请输入反担保方式" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">其他还款保证方式<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="othRepGuarWay" placeholder="请输入其他还款保证方式" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">保证金百分比<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="secDep" placeholder="请输入保证金百分比" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">担保合同文本编号<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="ctrctTxtCode" placeholder="请输入担保合同文本编号" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">责任人个数<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="rltRepymtNm" placeholder="请输入责任人个数" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">抵质押合同个数<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="ccNm" placeholder="请输入抵质押合同个数" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">授信协议标识码<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="mcc" placeholder="请输入授信协议标识码" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">账户状态<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="acctStatus" placeholder="请输入账户状态" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">在保余额<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="loanAmt" placeholder="请输入在保余额" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">余额变化日期<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="repayPrd" placeholder="请输入余额变化日期" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">五级分类<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="fiveCate" placeholder="请输入五级分类" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">五级分类认定日期<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="fiveCateAdjDate" placeholder="请输入五级分类认定日期" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">风险敞口<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="riex" placeholder="请输入风险敞口" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">代偿（垫款）标志<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="compAdvFlag" placeholder="请输入代偿（垫款）标志" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">账户关闭日期<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="closeDate" placeholder="请输入账户关闭日期" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">创建人用户主键ID<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="createUser" placeholder="请输入创建人用户主键ID" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">创建时间<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="createTime" placeholder="请输入创建时间" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">最后修改人员的用户ID<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="updateUser" placeholder="请输入最后修改人员的用户ID" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">最后修改时间<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="updateTime" placeholder="请输入最后修改时间" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">删除标志<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="deleteFlag" placeholder="请输入删除标志" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+
+    <div class="layui-form-item text-right">
+        <button class="layui-btn layui-btn-primary" type="button" ew-event="backupPage" id="backupPage">取消</button>
+        <button class="layui-btn" lay-filter="btnSubmit" lay-submit>保存</button>
+    </div>
+</form>
+
+@}
+

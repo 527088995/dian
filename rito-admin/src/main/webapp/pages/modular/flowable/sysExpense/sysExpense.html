@@ -1,0 +1,50 @@
+@layout("/common/_container.html",{js:["/assets/modular/flowable/sysExpense/sysExpense.js"]}){
+
+<div class="layui-body-header">
+    <span class="layui-body-header-title">报销管理-报销表管理</span>
+</div>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-sm12 layui-col-md12 layui-col-lg12">
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <div class="layui-form toolbar">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <input id="condition" class="layui-input" type="text" placeholder="报销管理-报销表名称"/>
+                            </div>
+                            <div class="layui-inline">
+                                <button id="btnSearch" class="layui-btn icon-btn"><i class="layui-icon">&#xe615;</i>搜索
+                                </button>
+                                @if(shiro.hasPermission("/sysExpense/add")){
+                                <button id="btnAdd" class="layui-btn icon-btn"><i class="layui-icon">&#xe654;</i>添加
+                                </button>
+                                @}
+                                @if(shiro.hasPermission("/sysExpense/btnSubmit")){
+                                <button id="btnSubmit" class="layui-btn icon-btn"><i class="layui-icon">&#xe672;</i>提交
+                                </button>
+                                @}
+                                @if(shiro.hasPermission("/sysExpense/btnAdopt")){
+                                <button id="btnAdopt" class="layui-btn icon-btn"><i class="layui-icon">&#xe605;</i>通过
+                                </button>
+                                @}
+                                @if(shiro.hasPermission("/sysExpense/btnReject")){
+                                <button id="btnReject" class="layui-btn icon-btn"><i class="layui-icon">&#x1006;</i>驳回
+                                </button>
+                                @}
+
+                            </div>
+                        </div>
+                    </div>
+                    <table class="layui-table" id="sysExpenseTable" lay-filter="sysExpenseTable"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="tableBar">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">查看流程图</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</a>
+</script>
+@}

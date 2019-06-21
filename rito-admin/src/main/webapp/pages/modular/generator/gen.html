@@ -1,0 +1,79 @@
+@layout("/common/_container.html",{title:"代码生成",bg:"bg-white",js:["/assets/modular/generator/gen.js"]}){
+
+<div class="layui-body-header">
+    <span class="layui-body-header-title">代码生成</span>
+</div>
+
+<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+        <li class="layui-this" id="code_gen">代码生成</li>
+        <li id="db_config">数据库配置</li>
+        <li id="add_db">添加数据源</li>
+    </ul>
+    <div class="layui-tab-content" style="height: 100px;">
+        <div class="layui-tab-item layui-show">
+            <div class="layui-fluid">
+                <div class="layui-row layui-col-space15">
+                    <div class="layui-col-xs12">
+                        <div class="layui-card">
+                            <div class="layui-card-body">
+                                <div class="layui-form">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">模块名</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="moduleName" name="moduleName" placeholder="业务需要区分模块名:system" lay-verify="title" autocomplete="off" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">作者</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="author" name="author" lay-verify="title" autocomplete="off" placeholder="代码生成注释的作者" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">项目包名称</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="proPackage"  placeholder="项目包名称:com.stylefeng.guns"  name="proPackage" lay-verify="title" autocomplete="off" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">表前缀移除</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="removePrefix" name="removePrefix" lay-verify="title" autocomplete="off" placeholder="表前缀移除" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">数据源选择</label>
+                                        <div class="layui-input-block">
+                                            <select id="dataSourceId" name="dataSourceId" lay-filter="dataSourceId">
+                                                <option value=""></option>
+                                                @for(item in dataSources!){
+                                                <option value="${item.dbId}">${item.dbName}</option>
+                                                @}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <button class="layui-btn" lay-submit="" id="execute">生成代码</button>
+<!--                                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>-->
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">选择表</label>
+                                        <div class="layui-input-block">
+                                            <table class="layui-hide" id="dbTableList" lay-filter="dbTableList"></table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-tab-item">加载中...</div>
+        <div class="layui-tab-item">加载中...</div>
+    </div>
+</div>
+@}

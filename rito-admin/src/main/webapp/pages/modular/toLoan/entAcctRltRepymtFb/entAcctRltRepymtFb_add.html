@@ -1,0 +1,106 @@
+@layout("/common/_container.html",{bg:"bg-white",js:["/assets/modular/toLoan/entAcctRltRepymtFb/entAcctRltRepymtFb_add.js"]}){
+
+<form id="entAcctRltRepymtFbForm" lay-filter="entAcctRltRepymtFbForm" class="layui-form model-form">
+    <div class="layui-form-item text-right">
+        <button class="layui-btn layui-btn-primary" type="button" ew-event="backupPage" id="backupPage">取消</button>
+        <button class="layui-btn" lay-filter="btnSubmit" lay-submit>保存</button>
+    </div>
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">ID<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="id" placeholder="请输入ID" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">借款账户ID<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="entAcctId" placeholder="请输入借款账户ID" type="text" class="layui-input" lay-verify="required"
+                   required/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">身份类别<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="arlpIdType" placeholder="请输入身份类别" type="text" class="layui-input" lay-verify="required"
+                   required/>
+        </div>
+    </div>
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">责任人名称<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="arlpName" placeholder="请输入责任人名称" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">责任人身份标识类型<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="arlpCertType" placeholder="请输入责任人身份标识类型" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">责任人身份标识号码<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="arlpCertNum" placeholder="请输入责任人身份标识号码" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">还款责任人类型<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="arlpType" placeholder="请输入还款责任人类型" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">还款责任金额<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="arlpAmt" placeholder="请输入还款责任金额" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">联保标志<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="wartySign" placeholder="请输入联保标志" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label">保证合同编号<span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="maxGuarMcc" placeholder="请输入保证合同编号" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label"><span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="createTime" placeholder="请输入" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label"><span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="createUser" placeholder="请输入" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label"><span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="updateTime" placeholder="请输入" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label"><span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="updateUser" placeholder="请输入" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="layui-form-item">-->
+    <!--                <label class="layui-form-label"><span style="color: red;">*</span></label>-->
+    <!--                <div class="layui-input-block">-->
+    <!--                    <input name="deleteFlag" placeholder="请输入" type="text" class="layui-input" lay-verify="required" required/>-->
+    <!--                </div>-->
+    <!--            </div>-->
+
+
+</form>
+
+@}
+
