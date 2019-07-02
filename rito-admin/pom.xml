@@ -12,7 +12,7 @@
     <artifactId>rito-admin</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <name>rito-admin</name>
     <description>rito 的spring boot版本</description>
@@ -106,12 +106,12 @@
             <artifactId>ehcache</artifactId>
         </dependency>
 
-        <!--   需要分布式session的话需要放开注释
+        <!--   需要分布式session的话需要放开注释-->
         <dependency>
             <groupId>org.springframework.session</groupId>
             <artifactId>spring-session</artifactId>
         </dependency>
-        -->
+
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
@@ -178,9 +178,6 @@
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
-            <version>11.2.0.1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/resources/lib/ojdbc6-11.2.0.1.0.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
@@ -208,6 +205,7 @@
             </resource>
             <resource>
                 <directory>src/main/resources</directory>
+                <filtering>true</filtering>
             </resource>
             <resource>
                 <directory>src/main/java</directory>

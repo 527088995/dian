@@ -1,14 +1,24 @@
 @layout("/common/_container.html",{bg:"bg-white",title:"概览"}){
 <div style="padding: 20px;">
-    @for(notice in noticeList){
-    <blockquote class="layui-elem-quote">
-        <fieldset class="layui-elem-field">
-            <legend>${notice.title}</legend>
-            <div class="layui-field-box">
-                ${notice.content}
-            </div>
-        </fieldset>
+
+    <blockquote class="layui-elem-quote layui-quote-nm">
+        <legend>2000条数据页面跳转</legend>
+        <div class="layui-field-box">
+            <a href="http://127.0.0.1:8080/entAcctInfoFb" target="_blank" style="color: #3a50ff">http://127.0.0.1:8080/entAcctInfoFb</a>
+        </div>
     </blockquote>
-    @}
+    <blockquote class="layui-elem-quote layui-quote-nm">
+        <legend>审核数据页面跳转</legend>
+        <div class="layui-field-box">
+            <a href="http://127.0.0.1:8080/sysExpense" target="_blank" style="color: #3a50ff">http://127.0.0.1:8080/sysExpense</a>
+        </div>
+    </blockquote>
+    <blockquote class="layui-elem-quote layui-quote-nm">
+        <legend>单点登录</legend>
+        <div class="layui-field-box">
+            <a href="http://127.0.0.1:8081" target="_blank" style="color: #3a50ff">http://127.0.0.1:8081</a>
+        </div>
+    </blockquote>
+
 </div>
 @}

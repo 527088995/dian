@@ -1,7 +1,10 @@
 package com.stylefeng.guns.modular.toLoan.service.impl;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.stylefeng.guns.core.page.LayuiPageInfo;
 import com.stylefeng.guns.modular.toLoan.dao.EntAcctInfoFbMapper;
 import com.stylefeng.guns.modular.toLoan.model.EntAcctInfoFb;
 import com.stylefeng.guns.modular.toLoan.service.IEntAcctInfoFbService;
@@ -23,8 +26,14 @@ public class EntAcctInfoFbServiceImpl extends ServiceImpl<EntAcctInfoFbMapper, E
 
 
     @Override
-    public List<Map<String, Object>> list(Page page, String condition) {
-        List<Map<String, Object>> list = this.baseMapper.list(page, condition);
-        return list;
+    public LayuiPageInfo list() {
+        Wrapper<EntAcctInfoFb> wrapper=new EntityWrapper<>();
+
+        List<EntAcctInfoFb> list=this.baseMapper.selectList(wrapper);
+
+        LayuiPageInfo result = new LayuiPageInfo();
+        result.setData(list);
+
+        return result;
     }
 }

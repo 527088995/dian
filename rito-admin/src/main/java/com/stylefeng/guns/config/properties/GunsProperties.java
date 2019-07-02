@@ -28,7 +28,7 @@ public class GunsProperties {
 
     private Boolean haveCreatePath = false;
 
-    private Boolean springSessionOpen = false;
+    private Boolean springSessionOpen = true;
 
     /**
      * session 失效时间（默认为30分钟 单位：秒）

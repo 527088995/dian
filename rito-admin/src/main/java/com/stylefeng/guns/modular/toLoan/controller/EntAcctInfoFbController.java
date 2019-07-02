@@ -7,6 +7,7 @@ import com.stylefeng.guns.core.common.constant.state.DelFlag;
 import com.stylefeng.guns.core.common.exception.BizExceptionEnum;
 import com.stylefeng.guns.core.exception.ServiceException;
 import com.stylefeng.guns.core.page.LayuiPageFactory;
+import com.stylefeng.guns.core.page.LayuiPageInfo;
 import com.stylefeng.guns.core.shiro.ShiroKit;
 import com.stylefeng.guns.core.util.ToolUtil;
 import com.stylefeng.guns.modular.system.warpper.BaseWrapper;
@@ -70,11 +71,9 @@ public class EntAcctInfoFbController extends BaseController {
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
-    public Object list(String condition) {
-        Page page = LayuiPageFactory.defaultPage();
-        List<Map<String, Object>> list = this.entAcctInfoFbService.list(page, condition);
-        page.setRecords(new BaseWrapper(list).wrap());
-        return LayuiPageFactory.createPageInfo(page);
+    public LayuiPageInfo list(String condition) {
+        LayuiPageInfo list = this.entAcctInfoFbService.list();
+        return list;
     }
 
     /**

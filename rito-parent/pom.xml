@@ -40,7 +40,7 @@
         <swagger.version>2.2.2</swagger.version>
         <commons-lang3.version>3.6</commons-lang3.version>
         <ehcache.core.version>2.6.11</ehcache.core.version>
-        <mysql-connector-java.version>5.1.38</mysql-connector-java.version>
+        <mysql-connector-java.version>8.0.11</mysql-connector-java.version>
         <jwt.version>0.7.0</jwt.version>
         <flowable.version>6.2.0</flowable.version>
         <hutool.version>4.0.0</hutool.version>
@@ -189,6 +189,11 @@
                 <artifactId>quartz-jobs</artifactId>
                 <version>${quartz.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc6</artifactId>
+                <version>11.2.0.3</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -210,7 +215,60 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <delimiters>
+                        <delimiter>@</delimiter>
+                    </delimiters>
+                    <useDefaultDelimiters>false</useDefaultDelimiters>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
+
+    <!--第三方maven私服-->
+    <repositories>
+        <repository>
+            <id>nexus-aliyun</id>
+            <name>Nexus aliyun</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus-aliyun</id>
+            <name>Nexus aliyun</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+    <!-- ~~~~~~~~~~Maven私服配置结束 -->
 
     <profiles>
         <profile>

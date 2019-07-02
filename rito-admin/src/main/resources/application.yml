@@ -9,18 +9,22 @@ guns:
   swagger-open: true #是否开启swagger (true/false)
   kaptcha-open: false #是否开启登录时验证码 (true/false)
   #file-upload-path: d:/tmp  #文件上传目录(不配置的话为java.io.tmpdir目录)
-  spring-session-open: false #是否开启spring session,如果是多机环境需要开启(true/false)
-  session-invalidate-time: 1800 #session失效时间(只在单机环境下生效，多机环境在SpringSessionConfig类中配置) 单位：秒
-  session-validation-interval: 900 #多久检测一次失效的session(只在单机环境下生效) 单位：秒
+  spring-session-open: true #是否开启spring session,如果是多机环境需要开启(true/false)
+#  session-invalidate-time: 1800 #session失效时间(只在单机环境下生效，多机环境在SpringSessionConfig类中配置) 单位：秒
+#  session-validation-interval: 900 #多久检测一次失效的session(只在单机环境下生效) 单位：秒
 
 
 ###################  spring配置  ###################
 spring:
   profiles:
-    active: local
+    active: @spring.active@
   mvc:
     view:
       prefix: /pages
+  redis:
+    host: 106.13.55.232
+    port: 6379
+    password: 12qw!@QW
   devtools:
     restart:
       enabled: false #是否开启开发者工具（true/false）

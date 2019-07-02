@@ -145,7 +145,7 @@ layui.use(['layer', 'form', 'table', 'admin', 'ax'], function () {
     var tableResult = table.render({
         elem: '#' + entAcctInfoFb.tableId,
         url: Feng.ctxPath + '/entAcctInfoFb/list',
-        page: true,
+        page: false,
         height: "full-98",
         cellMinWidth: 100,
         cols: entAcctInfoFb.initColumn()

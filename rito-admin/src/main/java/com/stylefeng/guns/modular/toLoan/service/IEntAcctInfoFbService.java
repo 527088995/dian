@@ -2,6 +2,7 @@ package com.stylefeng.guns.modular.toLoan.service;
 
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.IService;
+import com.stylefeng.guns.core.page.LayuiPageInfo;
 import com.stylefeng.guns.modular.toLoan.model.EntAcctInfoFb;
 
 import java.util.List;
@@ -18,5 +19,5 @@ import java.util.Map;
 public interface IEntAcctInfoFbService extends IService<EntAcctInfoFb> {
 
 
-    List<Map<String, Object>> list(Page page, String condition);
+    LayuiPageInfo list();
 }
