@@ -19,17 +19,17 @@ public class GunsFlowableProperties {
     /**
      * 默认多数据源的链接
      */
-    private String url = "jdbc:oracle:thin:@192.168.0.118:1521:orcl";
+    private String url = "jdbc:mysql://106.13.55.232:3306/guns?useSSL=false&characterEncoding=utf8";
 
     /**
      * 默认多数据源的数据库账号
      */
-    private String username = "guns";
+    private String username = "root";
 
     /**
      * 默认多数据源的数据库密码
      */
-    private String password = "guns";
+    private String password = "mypwd";
 
     public void config(DruidDataSource dataSource) {
         dataSource.setUrl(url);
