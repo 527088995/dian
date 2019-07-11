@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  * @Description: 订单汇总
  */
 @Component
-public class OrderInfoSummaryListener {
+public class NoticeInfoListener {
 
     private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger("OrderInfoSummaryListener");
 
