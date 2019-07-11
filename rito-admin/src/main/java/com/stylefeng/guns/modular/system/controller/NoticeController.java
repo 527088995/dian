@@ -16,6 +16,7 @@
 package com.stylefeng.guns.modular.system.controller;
 
 import cn.hutool.core.bean.BeanUtil;
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.stylefeng.guns.core.base.controller.BaseController;
 import com.stylefeng.guns.core.common.annotion.BussinessLog;
@@ -26,11 +27,16 @@ import com.stylefeng.guns.core.common.exception.BizExceptionEnum;
 import com.stylefeng.guns.core.exception.ServiceException;
 import com.stylefeng.guns.core.log.LogObjectHolder;
 import com.stylefeng.guns.core.page.LayuiPageFactory;
+import com.stylefeng.guns.core.rabbitMQ.RabbitConfig;
 import com.stylefeng.guns.core.shiro.ShiroKit;
 import com.stylefeng.guns.core.util.ToolUtil;
 import com.stylefeng.guns.modular.system.model.Notice;
 import com.stylefeng.guns.modular.system.service.INoticeService;
 import com.stylefeng.guns.modular.system.warpper.NoticeWrapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.amqp.AmqpException;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,6 +45,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -53,10 +60,15 @@ import java.util.Map;
 @RequestMapping("/notice")
 public class NoticeController extends BaseController {
 
+    private final Logger logger = LoggerFactory.getLogger(NoticeController.class);
+
     private String PREFIX = "/modular/system/notice/";
 
     @Autowired
     private INoticeService noticeService;
+
+    @Resource
+    private RabbitTemplate rabbitTemplate;
 
     /**
      * 跳转到通知列表首页
@@ -93,7 +105,23 @@ public class NoticeController extends BaseController {
         LogObjectHolder.me().set(notice);
         return PREFIX + "notice_edit.html";
     }
-
+    /**
+     * 发送消息
+     *
+     * @param exchange        交换机名称
+     * @param routingKey      路由key
+     * @param message         消息内容
+     * @throws AmqpException
+     */
+    private void convertAndSend(String exchange, String routingKey, final Object message) throws AmqpException {
+        try {
+            rabbitTemplate.convertAndSend(exchange, routingKey, message);
+        } catch (Exception e) {
+            logger.error("MQ消息发送异常，消息ID：{}，消息体:{}, exchangeName:{}, routingKey:{}",
+                    JSON.toJSONString(message), exchange, routingKey, e);
+            // TODO 保存消息到数据库
+        }
+    }
     /**
      * 获取通知列表
      *
@@ -106,6 +134,7 @@ public class NoticeController extends BaseController {
         Page page = LayuiPageFactory.defaultPage();
         List<Map<String, Object>> list = this.noticeService.list(page, condition);
         page.setRecords(new NoticeWrapper(list).wrap());
+        this.convertAndSend(RabbitConfig.EXCHANGE_A, RabbitConfig.ROUTINGKEY_A,"211212");
         return LayuiPageFactory.createPageInfo(page);
     }
 

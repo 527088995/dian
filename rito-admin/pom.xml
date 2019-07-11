@@ -112,6 +112,12 @@
             <artifactId>spring-session</artifactId>
         </dependency>
 
+        <!-- mq的依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
