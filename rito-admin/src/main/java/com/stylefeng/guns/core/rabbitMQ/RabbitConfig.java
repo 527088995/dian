@@ -29,23 +29,6 @@ public class RabbitConfig {
     public static final String ROUTINGKEY_B = "spring-boot-routingKey_B";
     public static final String ROUTINGKEY_C = "spring-boot-routingKey_C";
 
-    @Bean
-    public ConnectionFactory connectionFactory() {
-        CachingConnectionFactory connectionFactory = new CachingConnectionFactory("106.13.55.232", 5672);
-        connectionFactory.setUsername("admin");
-        connectionFactory.setPassword("admin");
-        connectionFactory.setVirtualHost("/");
-        connectionFactory.setPublisherConfirms(true);
-        return connectionFactory;
-    }
-
-    @Bean
-    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-    //必须是prototype类型
-    public RabbitTemplate rabbitTemplate() {
-        RabbitTemplate template = new RabbitTemplate(connectionFactory());
-        return template;
-    }
 
     /**
      * 针对消费者配置
@@ -70,7 +53,6 @@ public class RabbitConfig {
     }
     @Bean
     public Binding binding() {
-
         return BindingBuilder.bind(queueA()).to(defaultExchange()).with(RabbitConfig.ROUTINGKEY_A);
     }
 

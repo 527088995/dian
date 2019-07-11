@@ -25,6 +25,12 @@ spring:
     host: 106.13.55.232
     port: 6379
     password: 12qw!@QW
+  rabbitmq:
+    host: 106.13.55.232
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /
   devtools:
     restart:
       enabled: false #是否开启开发者工具（true/false）

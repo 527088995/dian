@@ -29,6 +29,7 @@ import com.stylefeng.guns.core.log.LogObjectHolder;
 import com.stylefeng.guns.core.page.LayuiPageFactory;
 import com.stylefeng.guns.core.rabbitMQ.RabbitConfig;
 import com.stylefeng.guns.core.shiro.ShiroKit;
+import com.stylefeng.guns.core.util.JacksonUtil;
 import com.stylefeng.guns.core.util.ToolUtil;
 import com.stylefeng.guns.modular.system.model.Notice;
 import com.stylefeng.guns.modular.system.service.INoticeService;
@@ -105,12 +106,13 @@ public class NoticeController extends BaseController {
         LogObjectHolder.me().set(notice);
         return PREFIX + "notice_edit.html";
     }
+
     /**
      * 发送消息
      *
-     * @param exchange        交换机名称
-     * @param routingKey      路由key
-     * @param message         消息内容
+     * @param exchange   交换机名称
+     * @param routingKey 路由key
+     * @param message    消息内容
      * @throws AmqpException
      */
     private void convertAndSend(String exchange, String routingKey, final Object message) throws AmqpException {
@@ -122,6 +124,7 @@ public class NoticeController extends BaseController {
             // TODO 保存消息到数据库
         }
     }
+
     /**
      * 获取通知列表
      *
@@ -134,7 +137,6 @@ public class NoticeController extends BaseController {
         Page page = LayuiPageFactory.defaultPage();
         List<Map<String, Object>> list = this.noticeService.list(page, condition);
         page.setRecords(new NoticeWrapper(list).wrap());
-        this.convertAndSend(RabbitConfig.EXCHANGE_A, RabbitConfig.ROUTINGKEY_A,"211212");
         return LayuiPageFactory.createPageInfo(page);
     }
 
@@ -153,7 +155,9 @@ public class NoticeController extends BaseController {
         }
         notice.setCreateUser(ShiroKit.getUserNotNull().getId());
         notice.setCreateTime(new Date());
-        this.noticeService.insert(notice);
+        this.convertAndSend(RabbitConfig.EXCHANGE_A, RabbitConfig.ROUTINGKEY_A, JacksonUtil.toJson(notice));
+
+        // this.noticeService.insert(notice);
         return SUCCESS_TIP;
     }
 
