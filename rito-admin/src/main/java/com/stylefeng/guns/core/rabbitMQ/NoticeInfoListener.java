@@ -11,12 +11,12 @@ import org.springframework.stereotype.Component;
 /**
  * @Auther: xqc
  * @Date: 2019/3/7 09:35
- * @Description: 订单汇总
+ * @Description: 通知汇总
  */
 @Component
 public class NoticeInfoListener {
 
-    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger("OrderInfoSummaryListener");
+    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger("NoticeInfoListener");
 
     @Autowired
     private INoticeService noticeService;
@@ -33,22 +33,22 @@ public class NoticeInfoListener {
     @RabbitListener(queues = RabbitConfig.QUEUE_A)
     public void receiveMessage(String s, Message message) {
         try {
-            log.info(">>>>>>>>>>>>>>消费正常队列收到订单汇总表MQ" + s);
+            log.info(">>>>>>>>>>>>>>消费正常队列收到通知汇总表MQ" + s);
             log.info("============" + new String(message.getBody()) + "==============");
 
             String str = new String(message.getBody());
             Notice oo = JacksonUtil.fromJson(str, Notice.class);
             if (oo == null) {
-                log.info(">>>>>>>>>>>>>>正常队列订单汇总MQ消费异常：订单参数异常");
+                log.info(">>>>>>>>>>>>>>正常队列通知汇总MQ消费异常：通知参数异常");
                 return;
             }
 
             boolean rb = noticeService.insert(oo);
             if (!rb) {
-                log.info(">>>>>>>>>>>>>>正常队列订单汇总MQ消费异常：订单参数异常");
+                log.info(">>>>>>>>>>>>>>正常队列通知汇总MQ消费异常：通知参数异常");
             }
         } catch (Exception e) {
-            log.error("RabbitMQ Error 正常队列订单汇总MQ消费" + e.getMessage(), e);
+            log.error("RabbitMQ Error 正常队列通知汇总MQ消费" + e.getMessage(), e);
         }
     }
 
