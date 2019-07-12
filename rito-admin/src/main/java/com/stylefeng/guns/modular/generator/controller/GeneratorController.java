@@ -201,7 +201,7 @@ public class GeneratorController {
     /**
      * 生成代码
      */
-    @ApiOperation("生成代码")
+    //@ApiOperation("生成代码")
     @RequestMapping(value = "/generate")
     @ResponseBody
     public ResponseEntity<InputStreamResource> generate(String author, String proPackage, String removePrefix,
