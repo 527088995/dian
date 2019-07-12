@@ -18,7 +18,8 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        DB_ID, DB_NAME, JDBC_DRIVER, USER_NAME, PASSWORD, JDBC_URL, CREATE_TIME, CREATE_USER, UPDATE_TIME, UPDATE_USER
+        DB_ID as "dbId", DB_NAME as "dbName", JDBC_DRIVER as "jdbcDriver", USER_NAME as "userName", PASSWORD as "password", JDBC_URL as "jdbcUrl",
+        CREATE_TIME as "createTime", CREATE_USER as "createUser", UPDATE_TIME as "updateTime", UPDATE_USER as "updateUser"
     </sql>
 
 </mapper>
