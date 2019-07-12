@@ -26,4 +26,7 @@ public interface DictMapper extends BaseMapper<Dict> {
      * where parentIds like ''
      */
     List<Dict> likeParentIds(@Param("dictId") Long dictId);
+
+    List<Dict> selectByParentCode(@Param("code") String code);
+
 }

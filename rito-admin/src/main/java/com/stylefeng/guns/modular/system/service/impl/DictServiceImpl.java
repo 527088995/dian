@@ -62,7 +62,8 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements ID
 
     @Override
     public List<Dict> selectByParentCode(String code) {
-        return null;
+        List<Dict> dictList = this.baseMapper.selectByParentCode(code);
+        return dictList;
     }
 
     /**

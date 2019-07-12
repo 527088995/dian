@@ -45,4 +45,19 @@
             and parent_ids LIKE '%$[' || #{dictId} || ']%'
         </if>
     </select>
+    <select id="selectByParentCode" resultType="com.stylefeng.guns.modular.system.model.Dict">
+        SELECT
+        a.code,a.name
+        FROM
+        sys_dict a
+        LEFT JOIN sys_dict_type b ON a.dict_type_id = b.dict_type_id
+        WHERE 1 = 1
+        and
+        a.status = 'ENABLE'
+        AND
+        b.status = 'ENABLE'
+        <if test="code != null and code != ''">
+            and b.code=#{code}
+        </if>
+    </select>
 </mapper>

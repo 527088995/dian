@@ -32,11 +32,16 @@ layui.use(['layer', 'form', 'table', 'admin', 'ax'], function () {
             {title: '执行时间', field: 'execAt', visible: true, align: 'center', valign: 'middle'},
             {title: '执行结果', field: 'execResult', visible: true, align: 'center', valign: 'middle'},
             {title: '执行参数', field: 'data', visible: true, align: 'center', valign: 'middle'},
-            {title: '是否禁用', field: 'disabled', visible: true, align: 'center', valign: 'middle'},
+            {title: '是否禁用', field: 'disabled', visible: true, templet: viewDisabled, align: 'center', valign: 'middle'},
             {title: '是否允许并发', field: 'concurrent', visible: true, align: 'center', valign: 'middle'},
             {align: 'center', toolbar: '#tableBar', title: '操作', minWidth: 200}
         ]];
     };
+
+    //格式化单据状态
+    function viewDisabled(d) {
+        return Feng.getDictName("TASK_DISABLED", d.disabled);
+    }
 
     /**
      * 点击查询按钮
@@ -72,7 +77,7 @@ layui.use(['layer', 'form', 'table', 'admin', 'ax'], function () {
      * @param data 查看日志
      */
     sysTask.viewLog = function (data) {
-        window.location.href = Feng.ctxPath + '/sysTaskLog/viewLog/'+ data.id;
+        window.location.href = Feng.ctxPath + '/sysTaskLog/viewLog/' + data.id;
 
     };
 
@@ -125,7 +130,7 @@ layui.use(['layer', 'form', 'table', 'admin', 'ax'], function () {
             sysTask.onEditsysTask(data);
         } else if (layEvent === 'delete') {
             sysTask.onDeletesysTask(data);
-        }else if (layEvent === 'viewLog') {
+        } else if (layEvent === 'viewLog') {
             sysTask.viewLog(data);
         }
     });

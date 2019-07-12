@@ -171,6 +171,16 @@ public class DictController extends BaseController {
     }
 
     /**
+     *
+     * @param code
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/selectNameByCode")
+    public List<Dict> selectNameByCode(String code) {
+        return this.dictService.selectByParentCode(code);
+    }
+    /**
      * 获取某个类型下字典树的列表，ztree格式
      *
      * @author ...

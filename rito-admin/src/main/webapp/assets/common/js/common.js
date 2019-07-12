@@ -84,6 +84,50 @@ Feng.closeAllLoading = function () {
     layer.closeAll('loading');
 };
 
+/*---------------------格式化数据字典开始--------------------------*/
+//根据字典代码和code获取name。用于table显示字典name
+var _dictObj = {};
+Feng.getDictName = function (dictCode, code) {
+    var $ = layui.jquery;
+    var dictData;
+    if (_dictObj[dictCode]) {
+        dictData = _dictObj[dictCode];
+    } else {
+        var param = {
+            code: dictCode
+        };
+        $.ajax({
+            type: "post",
+            async: false,
+            dataType: "json",
+            url: Feng.ctxPath + "dict/selectNameByCode",
+            data: {"code": dictCode},
+            error: function () {
+                alert('Error!');
+            },
+            success: function (data) {
+                dictData = data;
+                _dictObj[dictCode] = data;
+            }
+        });
+    }
+    var returnValue = code;
+    if (undefined == returnValue || '' == returnValue) {
+        returnValue = '';
+    } else {
+        if (dictData && dictData.length > 0) {
+            $.each(dictData, function (key, value) {
+                if (value.code == code) {
+                    returnValue = value.name;
+                    return returnValue;
+                }
+            })
+        }
+    }
+    return returnValue;
+}
+/*---------------------格式化数据字典结束--------------------------*/
+
 // 以下代码是配置layui扩展模块的目录，每个页面都需要引入
 layui.config({
     base: Feng.ctxPath + '/assets/common/module/'
