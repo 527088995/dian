@@ -42,7 +42,7 @@ import java.util.Map;
 @RequestMapping("/generator")
 public class GeneratorController {
 
-    private String PREFIX = "/modular/generator/";
+    private String PREFIX = "/modular/generator";
 
 
     @Autowired
