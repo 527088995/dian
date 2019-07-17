@@ -109,7 +109,11 @@
         <!--   需要分布式session的话需要放开注释-->
         <dependency>
             <groupId>org.springframework.session</groupId>
-            <artifactId>spring-session</artifactId>
+            <artifactId>spring-session-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
         <!-- mq的依赖 -->
@@ -150,6 +154,12 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.pegClient</groupId>-->
+<!--            <artifactId>pegClient</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
