@@ -49,6 +49,21 @@ public class GeneratorController {
     private IDatabaseInfoService databaseInfoService;
 
     /**
+     * 代码生成主页
+     *
+     * @author ...
+     * @Date 2019/1/30 2:49 PM
+     */
+    @RequestMapping("/info")
+    public String index(Model model) {
+        Wrapper<DatabaseInfo> wrapper = new EntityWrapper<>();
+        List<DatabaseInfo> all = databaseInfoService.selectList(wrapper);
+        model.addAttribute("dataSources", all);
+
+        return PREFIX + "/gen.html";
+    }
+
+    /**
      * 数据库管理主页
      *
      * @author ...
@@ -136,20 +151,7 @@ public class GeneratorController {
     }
 
 
-    /**
-     * 代码生成主页
-     *
-     * @author ...
-     * @Date 2019/1/30 2:49 PM
-     */
-    @RequestMapping("")
-    public String index(Model model) {
-        Wrapper<DatabaseInfo> wrapper = new EntityWrapper<>();
-        List<DatabaseInfo> all = databaseInfoService.selectList(wrapper);
-        model.addAttribute("dataSources", all);
 
-        return PREFIX + "/gen.html";
-    }
 
     /**
      * 执行代码生成
