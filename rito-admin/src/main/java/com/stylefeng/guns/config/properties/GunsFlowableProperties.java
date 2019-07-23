@@ -1,6 +1,7 @@
 package com.stylefeng.guns.config.properties;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,17 +20,20 @@ public class GunsFlowableProperties {
     /**
      * 默认多数据源的链接
      */
-    private String url = "jdbc:mysql://106.13.55.232:3306/guns?useSSL=false&characterEncoding=utf8";
+    @Value("${guns.flowable.url}")
+    private String url;
 
     /**
      * 默认多数据源的数据库账号
      */
-    private String username = "root";
+    @Value("${guns.flowable.username}")
+    private String username;
 
     /**
      * 默认多数据源的数据库密码
      */
-    private String password = "mypwd";
+    @Value("${guns.flowable.password}")
+    private String password;
 
     public void config(DruidDataSource dataSource) {
         dataSource.setUrl(url);
