@@ -56,11 +56,13 @@ public abstract class GunsTemplateEngine extends AbstractTemplateEngine {
     protected void generateFile(String template, String filePath) {
         Template pageTemplate = groupTemplate.getTemplate(template);
         configTemplate(pageTemplate);
-        if (PlatformUtil.isWindows()) {
+        String osNmae=System.getProperty("os.name");
+        if (osNmae.contains("Windows")) {
             filePath = filePath.replaceAll("/+|\\\\+", "\\\\");
         } else {
             filePath = filePath.replaceAll("/+|\\\\+", "/");
         }
+        System.out.println(filePath);
         File file = new File(filePath);
         File parentFile = file.getParentFile();
         if (!parentFile.exists()) {
