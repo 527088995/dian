@@ -17,7 +17,7 @@ import com.stylefeng.guns.rest.modular.auth.security.impl.Base64SecurityAction;
 public class JsonTest {
 
     public static void main(String[] args) {
-        String randomKey = "5sb893";
+        String randomKey = "0h7bsj";
 
         SimpleObject simpleObject = new SimpleObject();
         simpleObject.setUser("fsn");

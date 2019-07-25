@@ -28,10 +28,11 @@ mybatis-plus:
 
 spring:
   datasource:
-      url: jdbc:mysql://127.0.0.1:3306/guns_rest?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
-      username: root
-      password: root
-      filters: log4j,wall,mergeStat
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://106.13.55.232:3306/guns_rest?useSSL=false&characterEncoding=utf8
+    username: root
+    password: 1qaz!QAZ
+    filters: log4j,wall,mergeStat
 
 logging:
   level.root: info
