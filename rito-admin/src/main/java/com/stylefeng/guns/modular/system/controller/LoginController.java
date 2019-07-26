@@ -21,6 +21,8 @@ import com.stylefeng.guns.core.log.factory.LogTaskFactory;
 import com.stylefeng.guns.core.node.MenuNode;
 import com.stylefeng.guns.core.shiro.ShiroKit;
 import com.stylefeng.guns.core.shiro.ShiroUser;
+import com.stylefeng.guns.core.shiro.jwt.JwtToken;
+import com.stylefeng.guns.core.shiro.jwt.UrlUtil;
 import com.stylefeng.guns.modular.system.service.IUserService;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
@@ -30,6 +32,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 import static com.stylefeng.guns.core.support.HttpKit.getIp;
@@ -82,7 +85,7 @@ public class LoginController extends BaseController {
         if (ShiroKit.isAuthenticated() || ShiroKit.getUser() != null) {
             return REDIRECT + "/";
         } else {
-            return "/login.html";
+            return REDIRECT + UrlUtil.getSsoServerUrl();
         }
     }
 
@@ -92,25 +95,17 @@ public class LoginController extends BaseController {
      * @author ...
      * @Date 2018/12/23 5:42 PM
      */
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String loginVali() {
+    @RequestMapping(value = "/clientSso", method = RequestMethod.GET)
+    public String loginVali(HttpServletRequest request) {
 
-        String username = super.getPara("username").trim();
-        String password = super.getPara("password").trim();
-        String remember = super.getPara("remember");
+        String token = super.getPara("token").trim();
 
         Subject currentUser = ShiroKit.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(username, password.toCharArray());
 
-        //如果开启了记住我功能
-        if ("on".equals(remember)) {
-            token.setRememberMe(true);
-        } else {
-            token.setRememberMe(false);
-        }
+        JwtToken jwtToken = new JwtToken(token, request.getRemoteHost());
 
         //执行shiro登录操作
-        currentUser.login(token);
+        currentUser.login(jwtToken);
 
         //登录成功，记录登录日志
         ShiroUser shiroUser = ShiroKit.getUserNotNull();

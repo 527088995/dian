@@ -1,11 +1,27 @@
+/**
+ * Copyright 2018-2020 stylefeng & fengshuonan (sn93@qq.com)
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.stylefeng.guns.config.web;
 
 import com.stylefeng.guns.config.properties.GunsProperties;
 import com.stylefeng.guns.core.intercept.GunsUserFilter;
-import com.stylefeng.guns.core.shiro.ShiroDbRealm;
+import com.stylefeng.guns.core.shiro.jwt.JwtRealm;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.codec.Base64;
+import org.apache.shiro.session.mgt.SessionManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -27,10 +43,13 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import static com.stylefeng.guns.core.common.constant.Const.NONE_PERMISSION_RES;
+
+
 /**
  * shiro权限管理的配置
  *
- * @author ...
+ * @author fengshuonan
  * @date 2016年11月14日 下午3:03:44
  */
 @Configuration
@@ -40,12 +59,12 @@ public class ShiroConfig {
      * 安全管理器
      */
     @Bean
-    public DefaultWebSecurityManager securityManager(CookieRememberMeManager rememberMeManager, CacheManager cacheShiroManager) {
+    public DefaultWebSecurityManager securityManager(CookieRememberMeManager rememberMeManager, CacheManager cacheShiroManager, SessionManager sessionManager) {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        securityManager.setRealm(this.shiroDbRealm());
+        securityManager.setRealm(this.jwtRealm());
         securityManager.setCacheManager(cacheShiroManager);
         securityManager.setRememberMeManager(rememberMeManager);
-        //securityManager.setSessionManager(sessionManager);
+        securityManager.setSessionManager(sessionManager);
         return securityManager;
     }
 
@@ -91,8 +110,8 @@ public class ShiroConfig {
      * 项目自定义的Realm
      */
     @Bean
-    public ShiroDbRealm shiroDbRealm() {
-        return new ShiroDbRealm();
+    public JwtRealm jwtRealm() {
+        return new JwtRealm();
     }
 
     /**
@@ -159,14 +178,9 @@ public class ShiroConfig {
          *
          */
         Map<String, String> hashMap = new LinkedHashMap<>();
-        hashMap.put("/static/**", "anon");
-        hashMap.put("/assets/**", "anon");
-        hashMap.put("/gunsApi/**", "anon");
-        hashMap.put("/entAcctInfoFb/**", "anon");
-        hashMap.put("/sysExpense/**", "anon");
-        hashMap.put("/login", "anon");
-        hashMap.put("/global/sessionError", "anon");
-        hashMap.put("/kaptcha", "anon");
+        for (String nonePermissionRe : NONE_PERMISSION_RES) {
+            hashMap.put(nonePermissionRe, "anon");
+        }
         hashMap.put("/**", "user");
         shiroFilter.setFilterChainDefinitionMap(hashMap);
         return shiroFilter;
@@ -179,7 +193,7 @@ public class ShiroConfig {
     public MethodInvokingFactoryBean methodInvokingFactoryBean(DefaultWebSecurityManager securityManager) {
         MethodInvokingFactoryBean bean = new MethodInvokingFactoryBean();
         bean.setStaticMethod("org.apache.shiro.SecurityUtils.setSecurityManager");
-        bean.setArguments(new Object[]{securityManager});
+        bean.setArguments(securityManager);
         return bean;
     }
 

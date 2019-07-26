@@ -7,7 +7,7 @@ spring:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://106.13.55.232:3306/guns?useSSL=false&characterEncoding=utf8
     username: root
-    password: mypwd
+    password: 1qaz!QAZ
     db-name: guns
     filters: log4j,wall,mergeStat
 
@@ -18,10 +18,10 @@ guns:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://106.13.55.232:3306/guns?useSSL=false&characterEncoding=utf8
     username: root
-    password: mypwd
+    password: 1qaz!QAZ
   muti-datasource:
     open: true
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://106.13.55.232:3306/guns?useSSL=false&characterEncoding=utf8
     username: root
-    password: mypwd
+    password: 1qaz!QAZ
