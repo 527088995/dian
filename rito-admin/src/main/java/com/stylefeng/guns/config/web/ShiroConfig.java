@@ -17,6 +17,7 @@ package com.stylefeng.guns.config.web;
 
 import com.stylefeng.guns.config.properties.GunsProperties;
 import com.stylefeng.guns.core.intercept.GunsUserFilter;
+import com.stylefeng.guns.core.shiro.ShiroDbRealm;
 import com.stylefeng.guns.core.shiro.jwt.JwtRealm;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
@@ -57,11 +58,15 @@ public class ShiroConfig {
 
     /**
      * 安全管理器
+     * (此处报错不影响使用因为在这个类里有两个sessionManager注册，一个是单机登录，一个是多机登录实际只会使用一个)
      */
     @Bean
     public DefaultWebSecurityManager securityManager(CookieRememberMeManager rememberMeManager, CacheManager cacheShiroManager, SessionManager sessionManager) {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        securityManager.setRealm(this.jwtRealm());
+        //单点登录
+        //securityManager.setRealm(this.jwtRealm());
+        //非单点登录
+        securityManager.setRealm(this.shiroDbRealm());
         securityManager.setCacheManager(cacheShiroManager);
         securityManager.setRememberMeManager(rememberMeManager);
         securityManager.setSessionManager(sessionManager);
@@ -107,11 +112,19 @@ public class ShiroConfig {
     }
 
     /**
-     * 项目自定义的Realm
+     * 项目自定义的Realm(单点登录)
      */
     @Bean
     public JwtRealm jwtRealm() {
         return new JwtRealm();
+    }
+
+    /**
+     * 项目自定义的Realm(非单点登录)
+     */
+    @Bean
+    public ShiroDbRealm shiroDbRealm() {
+        return new ShiroDbRealm();
     }
 
     /**

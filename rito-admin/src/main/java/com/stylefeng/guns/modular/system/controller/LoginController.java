@@ -85,12 +85,15 @@ public class LoginController extends BaseController {
         if (ShiroKit.isAuthenticated() || ShiroKit.getUser() != null) {
             return REDIRECT + "/";
         } else {
-            return REDIRECT + UrlUtil.getSsoServerUrl();
+            //单点登录
+            //return REDIRECT + UrlUtil.getSsoServerUrl();
+            //非单点登录
+            return "/login.html";
         }
     }
 
     /**
-     * 点击登录执行的动作
+     * 点击登录执行的动作(单点登录)
      *
      * @author ...
      * @Date 2018/12/23 5:42 PM
@@ -116,6 +119,40 @@ public class LoginController extends BaseController {
         return REDIRECT + "/";
     }
 
+    /**
+     * 点击登录执行的动作(非单点登录)
+     *
+     * @author ...
+     * @Date 2018/12/23 5:42 PM
+     */
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String loginVali() {
+
+        String username = super.getPara("username").trim();
+        String password = super.getPara("password").trim();
+        String remember = super.getPara("remember");
+
+        Subject currentUser = ShiroKit.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken(username, password.toCharArray());
+
+        //如果开启了记住我功能
+        if ("on".equals(remember)) {
+            token.setRememberMe(true);
+        } else {
+            token.setRememberMe(false);
+        }
+
+        //执行shiro登录操作
+        currentUser.login(token);
+
+        //登录成功，记录登录日志
+        ShiroUser shiroUser = ShiroKit.getUserNotNull();
+        LogManager.me().executeLog(LogTaskFactory.loginLog(shiroUser.getId(), getIp()));
+
+        ShiroKit.getSession().setAttribute("sessionFlag", true);
+
+        return REDIRECT + "/";
+    }
     /**
      * 退出登录
      *
