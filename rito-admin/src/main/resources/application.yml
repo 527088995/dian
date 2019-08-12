@@ -9,13 +9,13 @@ guns:
   swagger-open: true #是否开启swagger (true/false)
   kaptcha-open: false #是否开启登录时验证码 (true/false)
   #file-upload-path: d:/tmp  #文件上传目录(不配置的话为java.io.tmpdir目录)
-  spring-session-open: true #是否开启spring session,如果是多机环境需要开启(true/false)
-#  session-invalidate-time: 1800 #session失效时间(只在单机环境下生效，多机环境在SpringSessionConfig类中配置) 单位：秒
-#  session-validation-interval: 900 #多久检测一次失效的session(只在单机环境下生效) 单位：秒
+  spring-session-open: false #是否开启spring session,如果是多机环境需要开启(true/false)
+  session-invalidate-time: 1800 #session失效时间(只在单机环境下生效，多机环境在SpringSessionConfig类中配置) 单位：秒
+  session-validation-interval: 900 #多久检测一次失效的session(只在单机环境下生效) 单位：秒
   jwt-secret: a3733008aff2bc50fbfcaf276316796a            #客户端sso解析jwt的密钥
   app-id: 1119868600886403074                             #客户端的id
-  sso-server-url: http://localhost:8888/dca/sps/ssoLogin  #sso服务端的地址
-  sso-success-url: http://localhost  #sso成功后的本服务地址
+  sso-server-url: http://127.0.0.1:8888/dca/sps/ssoLogin  #sso服务端的地址
+  sso-success-url: http://127.0.0.1  #sso成功后的本服务地址
 
 ###################  spring配置  ###################
 spring:
