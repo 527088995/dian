@@ -86,9 +86,9 @@ public class LoginController extends BaseController {
             return REDIRECT + "/";
         } else {
             //单点登录
-            //return REDIRECT + UrlUtil.getSsoServerUrl();
+            return REDIRECT + UrlUtil.getSsoServerUrl();
             //非单点登录
-            return "/login.html";
+            //return "/login.html";
         }
     }
 
@@ -125,7 +125,7 @@ public class LoginController extends BaseController {
      * @author ...
      * @Date 2018/12/23 5:42 PM
      */
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/loginVali", method = RequestMethod.POST)
     public String loginVali() {
 
         String username = super.getPara("username").trim();
