@@ -16,13 +16,13 @@ public class MutiDataSourceProperties {
 
     private String defaultDataSourceName = "dataSourceGuns";
 
-    private String url = "jdbc:mysql://127.0.0.1:3306/biz?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull";
+    private String url;
 
-    private String username = "root";
+    private String username;
 
-    private String password = "root";
+    private String password;
 
-    private String driverClassName = "com.mysql.jdbc.Driver";
+    private String driverClassName;
 
     private String validationQuery = "SELECT 'x' FROM DUAL";
 

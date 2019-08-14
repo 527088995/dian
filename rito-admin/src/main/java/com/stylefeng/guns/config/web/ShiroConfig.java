@@ -76,11 +76,11 @@ public class ShiroConfig {
     /**
      * spring session管理器（多机环境）
      */
-    @Bean
-    @ConditionalOnProperty(prefix = "guns", name = "spring-session-open", havingValue = "true")
-    public ServletContainerSessionManager servletContainerSessionManager() {
-        return new ServletContainerSessionManager();
-    }
+//    @Bean
+//    @ConditionalOnProperty(prefix = "guns", name = "spring-session-open", havingValue = "true")
+//    public ServletContainerSessionManager servletContainerSessionManager() {
+//        return new ServletContainerSessionManager();
+//    }
 
     /**
      * session管理器(单机环境)

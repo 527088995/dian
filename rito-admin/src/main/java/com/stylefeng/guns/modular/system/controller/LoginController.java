@@ -86,9 +86,9 @@ public class LoginController extends BaseController {
             return REDIRECT + "/";
         } else {
             //单点登录
-            return REDIRECT + UrlUtil.getSsoServerUrl();
+            //return REDIRECT + UrlUtil.getSsoServerUrl();
             //非单点登录
-            //return "/login.html";
+            return "/login.html";
         }
     }
 
