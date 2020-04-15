@@ -31,7 +31,7 @@ public class SimpleCanalClientExample {
             connector.rollback();
             int totalEmptyCount = 120;
             while (emptyCount < totalEmptyCount) {
-                Message message = connector.getWithoutAck(1); // 获取指定数量的数据
+                Message message = connector.getWithoutAck(batchSize); // 获取指定数量的数据
                 long batchId = message.getId();
                 int size = message.getEntries().size();
                 if (batchId == -1 || size == 0) {
