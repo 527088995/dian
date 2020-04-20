@@ -143,20 +143,6 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>com.icbc.shcpe</groupId>
-			<artifactId>shcpe-client</artifactId>
-			<version>1.0.2</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/lib/SHCPEClient.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>com.icbc.dmqs</groupId>
-			<artifactId>dmqs-client</artifactId>
-			<version>1.0.2</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/lib/dmqs-client-1.0.2.jar</systemPath>
-		</dependency>
 	</dependencies>
 
 	<build>
