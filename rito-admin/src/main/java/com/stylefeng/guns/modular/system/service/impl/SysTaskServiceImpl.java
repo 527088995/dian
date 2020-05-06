@@ -88,7 +88,7 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskMapper, SysTask> impl
 
     public SysTask disable(Long id) {
         SysTask task = this.sysTaskMapper.selectById(id);
-        task.setDisabled(true);
+        task.setDisabled("1");
         sysTaskMapper.updateById(task);
         logger.info("禁用定时任务{}", id.toString());
         try {
@@ -105,7 +105,7 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskMapper, SysTask> impl
 
     public SysTask enable(Long id) {
         SysTask task = this.sysTaskMapper.selectById(id);
-        task.setDisabled(false);
+        task.setDisabled("0");
         sysTaskMapper.updateById(task);
         logger.info("启用定时任务{}", id.toString());
         try {
@@ -113,7 +113,7 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskMapper, SysTask> impl
             if (job != null) {
                 jobService.deleteJob(job);
             }
-            if (!task.isDisabled()) {
+            if ("0".equals(task.getDisabled())) {
                 jobService.addJob(jobService.getJob(task));
             }
         } catch (SchedulerException e) {
@@ -125,7 +125,7 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskMapper, SysTask> impl
 
     public void delete(Long id) {
         SysTask task = this.sysTaskMapper.selectById(id);
-        task.setDisabled(true);
+        task.setDisabled("1");
         task.setDeleteFlag(DelFlag.DELETED.getCode());
         task.setCreateUser(ShiroKit.getUserNotNull().getId());
         task.setUpdateTime(new Date());
