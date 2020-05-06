@@ -10,7 +10,9 @@ import com.stylefeng.guns.core.log.LogObjectHolder;
 import com.stylefeng.guns.core.page.LayuiPageFactory;
 import com.stylefeng.guns.core.shiro.ShiroKit;
 import com.stylefeng.guns.core.util.ToolUtil;
+import com.stylefeng.guns.modular.system.model.Dict;
 import com.stylefeng.guns.modular.system.model.SysTask;
+import com.stylefeng.guns.modular.system.service.IDictService;
 import com.stylefeng.guns.modular.system.service.ISysTaskService;
 import com.stylefeng.guns.modular.system.warpper.BaseWrapper;
 import org.quartz.CronExpression;
@@ -37,6 +39,8 @@ public class SysTaskController extends BaseController {
 
     @Autowired
     private ISysTaskService sysTaskService;
+    @Autowired
+    private IDictService dictService;
 
     /**
      * 跳转到任务管理首页
@@ -50,7 +54,9 @@ public class SysTaskController extends BaseController {
      * 跳转到添加任务管理
      */
     @RequestMapping(value = "/sysTask_add")
-    public String sysTaskAdd() {
+    public String sysTaskAdd(Model model) {
+        List<Dict> all = dictService.selectByParentCode("TASK_DISABLED");
+        model.addAttribute("dictName", all);
         return PREFIX + "sysTask_add.html";
     }
 
@@ -61,6 +67,8 @@ public class SysTaskController extends BaseController {
     public String sysTaskUpdate(Long sysTaskId, Model model) {
         SysTask sysTask = sysTaskService.selectById(sysTaskId);
         model.addAllAttributes(BeanUtil.beanToMap(sysTask));
+        List<Dict> all = dictService.selectByParentCode("TASK_DISABLED");
+        model.addAttribute("dictName", all);
         LogObjectHolder.me().set(sysTask);
         return PREFIX + "sysTask_edit.html";
     }
