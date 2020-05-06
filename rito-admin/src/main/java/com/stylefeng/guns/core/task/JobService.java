@@ -71,7 +71,11 @@ public class JobService {
             job.setConcurrent(task.isConcurrent());
             job.setJobClass(task.getJobClass());
             job.setDescription(task.getName());
-            job.setDisabled(task.isDisabled());
+            if("1".equals(task.getDisabled())){
+                job.setDisabled(true);
+            }else {
+                job.setDisabled(false);
+            }
             if (StringUtils.isNotBlank(task.getData())) {
                 try {
                     Map<String, Object> dataMap = JSON.parseObject(task.getData(), Map.class);
@@ -148,7 +152,7 @@ public class JobService {
         wrapper.eq("DELETE_FLAG",0);
         List<SysTask> jobList = taskService.selectList(wrapper);
         for (SysTask task : jobList) {
-            if (!task.isDisabled()) {
+            if ("0".equals(task.getDisabled())) {
                 taskService.updateById(task);
             }
         }
