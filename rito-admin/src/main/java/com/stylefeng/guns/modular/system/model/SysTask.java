@@ -72,7 +72,7 @@ public class SysTask implements Serializable {
      * 是否禁用
      */
     @TableField("DISABLED")
-    private boolean disabled;
+    private String disabled;
     /**
      * 是否允许并发
      */
