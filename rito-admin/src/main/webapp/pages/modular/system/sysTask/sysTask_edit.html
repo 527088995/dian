@@ -24,7 +24,7 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">任务说明<span style="color: red;">*</span></label>
+        <label class="layui-form-label">任务说明<span style="color: #ffe5aa;">*</span></label>
         <div class="layui-input-block">
             <input name="note" value="${note}" placeholder="请输入任务说明" type="text" class="layui-input"
                    lay-verify="required" required/>
@@ -35,6 +35,19 @@
         <div class="layui-input-block">
             <input name="cron" value="${cron}" placeholder="请输入定时规则" type="text" class="layui-input"
                    lay-verify="required" required/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否禁用<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <select id="disabled" name="disabled">
+                @for(item in dictName){
+                <option @if(disabled == item.code){
+                        selected
+                        @}
+                        value="${disabled}" >${item.name}</option>
+                @}
+            </select>
         </div>
     </div>
 <!--    <div class="layui-form-item">-->
@@ -59,13 +72,7 @@
 <!--                   lay-verify="required" required/>-->
 <!--        </div>-->
 <!--    </div>-->
-<!--    <div class="layui-form-item">-->
-<!--        <label class="layui-form-label">是否禁用<span style="color: red;">*</span></label>-->
-<!--        <div class="layui-input-block">-->
-<!--            <input name="disabled" value="${disabled}" placeholder="请输入是否禁用" type="text" class="layui-input"-->
-<!--                   lay-verify="required" required/>-->
-<!--        </div>-->
-<!--    </div>-->
+
 <!--    <div class="layui-form-item">-->
 <!--        <label class="layui-form-label">是否允许并发<span style="color: red;">*</span></label>-->
 <!--        <div class="layui-input-block">-->

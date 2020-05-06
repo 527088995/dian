@@ -32,12 +32,12 @@
             <input name="cron" placeholder="请输入定时规则" type="text" class="layui-input" lay-verify="required" required/>
         </div>
     </div>
-<!--    <div class="layui-form-item">-->
-<!--        <label class="layui-form-label">执行参数<span style="color: red;">*</span></label>-->
-<!--        <div class="layui-input-block">-->
-<!--            <input name="data" placeholder="请输入执行参数" type="text" class="layui-input"/>-->
-<!--        </div>-->
-<!--    </div>-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">执行参数<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="data" placeholder="请输入执行参数" type="text" class="layui-input"/>
+        </div>
+    </div>
 <!--    <div class="layui-form-item">-->
 <!--        <label class="layui-form-label">执行时间<span style="color: red;">*</span></label>-->
 <!--        <div class="layui-input-block">-->
@@ -51,13 +51,17 @@
     <!--                    <input name="execResult" placeholder="请输入执行结果" type="text" class="layui-input" lay-verify="required" required/>-->
     <!--                </div>-->
     <!--            </div>-->
-<!--    <div class="layui-form-item">-->
-<!--        <label class="layui-form-label">是否禁用<span style="color: red;">*</span></label>-->
-<!--        <div class="layui-input-block">-->
-<!--            <input name="disabled" placeholder="请输入是否禁用" type="text" class="layui-input" lay-verify="required"-->
-<!--                   required/>-->
-<!--        </div>-->
-<!--    </div>-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否禁用<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <select id="disabled" name="disabled" lay-filter="disabled">
+                <option value=""></option>
+                @for(item in dictName){
+                <option value="${item.code}">${item.name}</option>
+                @}
+            </select>
+        </div>
+    </div>
 <!--    <div class="layui-form-item">-->
 <!--        <label class="layui-form-label">是否允许并发<span style="color: red;">*</span></label>-->
 <!--        <div class="layui-input-block">-->
