@@ -5,9 +5,9 @@ spring:
   profiles: local
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://106.13.55.232:3306/guns?useSSL=false&characterEncoding=utf8
+    url: jdbc:mysql://106.13.37.72:3306/guns?useSSL=false&characterEncoding=utf8
     username: root
-    password: 1qaz!QAZ
+    password: cCpXwfcN53WdtJzX
     db-name: guns
     filters: log4j,wall,mergeStat
 
@@ -16,12 +16,12 @@ guns:
   flowable:
     datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://106.13.55.232:3306/guns?useSSL=false&characterEncoding=utf8
+    url: jdbc:mysql://106.13.37.72:3306/guns?useSSL=false&characterEncoding=utf8
     username: root
-    password: 1qaz!QAZ
+    password: cCpXwfcN53WdtJzX
   muti-datasource-open: true #是否开启多数据源(true/false)
   muti-datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://106.13.55.232:3306/guns?useSSL=false&characterEncoding=utf8
+    url: jdbc:mysql://106.13.37.72:3306/guns?useSSL=false&characterEncoding=utf8
     username: root
-    password: 1qaz!QAZ
+    password: cCpXwfcN53WdtJzX

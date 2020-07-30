@@ -18,9 +18,6 @@ package com.stylefeng.guns.modular.system.controller;
 import cn.hutool.core.bean.BeanUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.plugins.Page;
-import com.longtop.efmp.peg.srv.bs.IAppSrvBS;
-import com.longtop.efmp.peg.xmlvo.PegHeadVO;
-import com.longtop.efmp.peg.xmlvo.cas.Cas010001VO;
 import com.stylefeng.guns.core.base.controller.BaseController;
 import com.stylefeng.guns.core.common.annotion.BussinessLog;
 import com.stylefeng.guns.core.common.constant.dictmap.DeleteDict;
@@ -50,7 +47,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -73,13 +69,12 @@ public class NoticeController extends BaseController {
     private INoticeService noticeService;
 
 
-    @Autowired
-    private IAppSrvBS iAppSrvBS;
+//    @Autowired
+//    private IAppSrvBS iAppSrvBS;
 
     @Resource
     private RabbitTemplate rabbitTemplate;
 
-    private com.longtop.efmp.peg.bas.util.PegHttpInvokerRequestExecutor PegHttpInvokerRequestExecutor;
 
     /**
      * 跳转到通知列表首页
@@ -147,24 +142,24 @@ public class NoticeController extends BaseController {
         Page page = LayuiPageFactory.defaultPage();
         List<Map<String, Object>> list = this.noticeService.list(page, condition);
 
-        Cas010001VO vo = new Cas010001VO();
-        PegHeadVO pegHeadVO = new PegHeadVO();
-//		pegHeadVO.setMesgId("mesgid0000001");
-//		pegHeadVO.setMesgRefId("mesgrefid0001");
-        //公共信息
-        vo.setMsgIdId("msgIdCas010001005");//每个报文都必须不一样
-        vo.setMsgIdCreDtTm("20180201123456");
-        vo.setOrigReceiver("111111111");
-
-        //各个报文信息
-        vo.setOrgnlMsgIdId("222223");
-        BigDecimal bal = new BigDecimal(30000);
-        BigDecimal curbal = new BigDecimal(28000);
-        vo.setBal(bal);
-        vo.setCurBal(curbal);
-        vo.setCpeAcctNo("22222222");
-        vo.setAcctSts("STT000");
-        vo.setBizCtrlInfPrcCd("1230I000000");
+//        Cas010001VO vo = new Cas010001VO();
+//        PegHeadVO pegHeadVO = new PegHeadVO();
+////		pegHeadVO.setMesgId("mesgid0000001");
+////		pegHeadVO.setMesgRefId("mesgrefid0001");
+//        //公共信息
+//        vo.setMsgIdId("msgIdCas010001005");//每个报文都必须不一样
+//        vo.setMsgIdCreDtTm("20180201123456");
+//        vo.setOrigReceiver("111111111");
+//
+//        //各个报文信息
+//        vo.setOrgnlMsgIdId("222223");
+//        BigDecimal bal = new BigDecimal(30000);
+//        BigDecimal curbal = new BigDecimal(28000);
+//        vo.setBal(bal);
+//        vo.setCurBal(curbal);
+//        vo.setCpeAcctNo("22222222");
+//        vo.setAcctSts("STT000");
+//        vo.setBizCtrlInfPrcCd("1230I000000");
 
 //        PegResultVO resultVO = iAppSrvBS.doRequest("COR", "uniqueCas010001005", pegHeadVO, vo);//第二个参数必须唯一
 //        System.out.println("CAS010001成功");

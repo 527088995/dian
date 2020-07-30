@@ -24,12 +24,12 @@ spring:
   mvc:
     view:
       prefix: /pages
-  redis:
-    host: 106.13.55.232
-    port: 6379
-    password: 12qw!@QW
+#  redis:
+#    host: 106.13.37.72
+#    port: 6379
+#    password: 12qw!@QW
   rabbitmq:
-    host: 106.13.55.232
+    host: 106.13.37.72
     port: 5672
     username: admin
     password: admin
