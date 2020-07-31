@@ -17,6 +17,8 @@ guns:
   sso-server-url: http://127.0.0.1:8888/dca/sps/ssoLogin  #sso服务端的地址
   sso-success-url: http://127.0.0.1  #sso成功后的本服务地址
 
+  sso-logout-server-url: http://127.0.0.1:8888/dca/sps/ssoLogout  #sso服务端的地址
+
 ###################  spring配置  ###################
 spring:
   profiles:

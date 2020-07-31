@@ -27,4 +27,21 @@ public class UrlUtil {
         return ssoUrl + "?appId=" + appId + "&redirectUrl=" + ssoSuccessUrl;
     }
 
+    public static String getSsoLogOutServerUrl() {
+
+        //获取sso服务端的地址
+        String ssoUrl = SpringContextHolder.getApplicationContext()
+                .getEnvironment().getProperty("guns.sso-logout-server-url");
+
+        //获取当前应用的appId
+        String appId = SpringContextHolder.getApplicationContext()
+                .getEnvironment().getProperty("guns.app-id");
+
+        //获取单点成功后本服务的url
+        String ssoSuccessUrl = SpringContextHolder.getApplicationContext()
+                .getEnvironment().getProperty("guns.sso-success-url");
+
+        return ssoUrl + "?appId=" + appId + "&redirectUrl=" + ssoSuccessUrl;
+    }
+
 }

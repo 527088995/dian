@@ -32,7 +32,6 @@ import org.apache.shiro.web.servlet.Cookie;
 import org.apache.shiro.web.servlet.ShiroHttpSession;
 import org.apache.shiro.web.servlet.SimpleCookie;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
-import org.apache.shiro.web.session.mgt.ServletContainerSessionManager;
 import org.springframework.beans.factory.config.MethodInvokingFactoryBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
@@ -64,9 +63,9 @@ public class ShiroConfig {
     public DefaultWebSecurityManager securityManager(CookieRememberMeManager rememberMeManager, CacheManager cacheShiroManager, SessionManager sessionManager) {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         //单点登录
-        //securityManager.setRealm(this.jwtRealm());
+        securityManager.setRealm(this.jwtRealm());
         //非单点登录
-        securityManager.setRealm(this.shiroDbRealm());
+        //securityManager.setRealm(this.shiroDbRealm());
         securityManager.setCacheManager(cacheShiroManager);
         securityManager.setRememberMeManager(rememberMeManager);
         securityManager.setSessionManager(sessionManager);

@@ -24,6 +24,7 @@ import com.stylefeng.guns.core.shiro.ShiroUser;
 import com.stylefeng.guns.core.shiro.jwt.JwtToken;
 import com.stylefeng.guns.core.shiro.jwt.UrlUtil;
 import com.stylefeng.guns.modular.system.service.IUserService;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -125,7 +126,7 @@ public class LoginController extends BaseController {
      * @author ...
      * @Date 2018/12/23 5:42 PM
      */
-    @RequestMapping(value = "/loginVali", method = RequestMethod.POST)
+//    @RequestMapping(value = "/loginVali", method = RequestMethod.POST)
     public String loginVali() {
 
         String username = super.getPara("username").trim();
@@ -148,11 +149,11 @@ public class LoginController extends BaseController {
         //登录成功，记录登录日志
         ShiroUser shiroUser = ShiroKit.getUserNotNull();
         LogManager.me().executeLog(LogTaskFactory.loginLog(shiroUser.getId(), getIp()));
-
         ShiroKit.getSession().setAttribute("sessionFlag", true);
 
         return REDIRECT + "/";
     }
+
     /**
      * 退出登录
      *
@@ -162,8 +163,12 @@ public class LoginController extends BaseController {
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logOut() {
         LogManager.me().executeLog(LogTaskFactory.exitLog(ShiroKit.getUserNotNull().getId(), getIp()));
+        Subject subject = SecurityUtils.getSubject();
+        if (subject.isAuthenticated()) {
+            subject.logout();
+        }
         ShiroKit.getSubject().logout();
         deleteAllCookie();
-        return REDIRECT + "/login";
+        return REDIRECT + UrlUtil.getSsoLogOutServerUrl();
     }
 }
